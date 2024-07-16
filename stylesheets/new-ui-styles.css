@@ -1,0 +1,482 @@
+@font-face {
+  font-family: Typewriter;
+  src: url("MonospaceTypewriter.ttf");
+}
+
+*:focus {
+  outline: none;
+}
+
+:root {
+  --sidebar-width: 12.8rem;
+}
+
+:root .t-normal {
+  --color-text: #ffffff;
+  --color-text-inverted: black;
+  --color-base: #1d1b22;
+  --color-accent: #df5050;
+  --color-good: #1bbb36;
+  --color-good-dark: #138626;
+  --color-notification: yellow;
+
+  --color-prestige--accent: black;
+}
+
+body.t-normal {
+  color: white;
+  background-color: #111014;
+}
+
+.t-normal .c-background-overlay {
+  background: black;
+  background-position: center;
+  background-size: 100%;
+}
+
+#page {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-start;
+  align-items: stretch;
+  font-family: Typewriter, serif;
+  background: none;
+  margin: auto;
+}
+
+.c-modern-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: var(--sidebar-width);
+  position: absolute;
+  left: 0;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+.c-modern-sidebar:hover .subtabs,
+.c-modern-sidebar:hover .l-tab-btn-inner,
+.c-modern-sidebar:hover .o-tab-btn,
+.c-modern-sidebar:hover .o-tab-btn::after {
+  transition-delay: 0s;
+}
+
+.resource-gain {
+  font-size: 0.7rem;
+  color: var(--color-text);
+}
+
+.t-normal .c-modal {
+  background-color: #1d1b22;
+  box-shadow: 0 0 1.5rem 0 black;
+}
+
+.o-tab-btn {
+  height: 4.6rem;
+  position: relative;
+  font-size: 1.4rem;
+  border-width: 0.1rem;
+  border-radius: 0;
+  margin-top: -0.1rem;
+  transition-delay: 0.2s;
+  transition-duration: 0.15s;
+}
+
+.o-tab-btn:hover {
+  z-index: 1;
+}
+
+.c-modern-sidebar > .o-tab-btn {
+  border-left-width: 0;
+}
+
+.l-tab-btn-inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.o-tab-btn:hover .subtabs {
+  left: calc(var(--sidebar-width) + 2.3rem);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.o-tab-btn::after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: calc(0% + -0.1rem);
+  left: calc(100% + 0.1rem);
+  z-index: 4;
+  border-top: 2.3rem solid transparent;
+  border-bottom: 2.3rem solid transparent;
+  border-left: 0 solid var(--color-accent);
+  transition-delay: 0.2s;
+  transition-duration: 0.15s;
+}
+
+.o-tab-btn--subtabs:hover::after {
+  border-left-width: 2.2rem;
+}
+
+.o-tab-btn--infinity::after {
+  border-left-color: var(--color-infinity);
+}
+
+.o-tab-btn--eternity::after {
+  border-left-color: var(--color-eternity);
+}
+
+.o-tab-btn--reality::after {
+  border-left-color: var(--color-reality);
+}
+
+.o-tab-btn--celestial::after {
+  border-left-color: var(--color-celestials);
+}
+
+.game-container {
+  width: calc(100% - var(--sidebar-width));
+  margin-left: var(--sidebar-width);
+}
+
+.tab-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+}
+
+.l-challenge-grid {
+  width: 100%;
+}
+
+.subtabs {
+  display: flex;
+  position: absolute;
+  top: -0.6rem;
+  left: var(--sidebar-width);
+  z-index: 4;
+  opacity: 0;
+  padding: 0.5rem;
+  padding-left: 0;
+  transition: pointer-events 0s linear 0s, all 0.15s linear 0.2s;
+  pointer-events: none;
+}
+
+.o-tab-btn--subtab {
+  width: 4.7rem;
+  height: 4.7rem;
+  font-size: 2.3rem;
+  font-weight: bold;
+  line-height: 4.5rem;
+  margin-left: -0.1rem;
+  transition-duration: 0.15s;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.o-subtab__tooltip {
+  width: 20rem;
+  height: 3rem;
+  position: absolute;
+  bottom: 100%;
+  z-index: 2;
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 2.8rem;
+  opacity: 0;
+  color: var(--color-text);
+  background: var(--color-base);
+  border: 0.1rem solid var(--color-accent);
+  border-radius: var(--var-border-radius, 0.4rem);
+  margin-left: -7.7rem;
+  transition-duration: 0.2s;
+  pointer-events: none;
+}
+
+.o-subtab__tooltip::after {
+  content: " ";
+  width: 0;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: 0;
+  border-top: 0 solid var(--color-accent);
+  border-right: 0.7rem solid transparent;
+  border-left: 0.7rem solid transparent;
+  margin-bottom: 0;
+  margin-left: -0.7rem;
+  transition-duration: 0.2s;
+}
+
+.o-tab-btn--subtab:hover .o-subtab__tooltip {
+  bottom: calc(100% + 0.7rem);
+  opacity: 1;
+}
+
+.o-tab-btn--subtab:hover .o-subtab__tooltip::after {
+  border-top-width: 0.7rem;
+  margin-bottom: -0.7rem;
+}
+
+.active {
+  background-color: #2c2933;
+}
+
+.o-primary-btn--new {
+  overflow: hidden;
+  grid-column: 1 / 11;
+  width: 25rem;
+  height: 4.4rem;
+  position: relative;
+  font-family: Typewriter, serif;
+  color: var(--color-text);
+  background-color: var(--color-base);
+  border: 0.1rem solid var(--color-good);
+  border-radius: var(--var-border-radius, 0.5rem);
+  margin: 0.5rem;
+  padding: 1rem;
+}
+
+.button-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.fill {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.fill-purchased {
+  float: left;
+  width: 20%;
+  height: 100%;
+  background-color: var(--color-good);
+}
+
+.fill-possible {
+  float: left;
+  width: 40%;
+  height: 100%;
+  background-color: var(--color-good-dark);
+}
+
+.modes-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding: 0 5rem;
+}
+
+.resets-container {
+  display: flex;
+  height: 16rem;
+  justify-content: space-around;
+}
+
+.reset-container h4 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.reset-container {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 16rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.3rem;
+}
+
+.particle {
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  z-index: 0;
+  color: var(--color-text);
+  background-image: url("../icon.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.information-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-text);
+  border-bottom: 0.1rem solid var(--color-good);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.6rem;
+}
+
+/* FIXING OLD TABS */
+
+.l-achievement-grid__cell {
+  margin: 0.6rem 0.4rem;
+}
+
+.t-normal .o-achievement__tooltip {
+  background: var(--color-base);
+  border: 0.1rem solid var(--color-accent);
+}
+
+.t-normal .o-achievement__tooltip::after {
+  border-top-color: var(--color-accent);
+}
+
+.o-primary-btn--option,
+.o-primary-btn--option-wide,
+.c-select-theme__item,
+.c-select-notation__item {
+  color: var(--color-text);
+  background: var(--color-base);
+  border: 0.1rem solid var(--color-good);
+}
+
+.o-primary-btn {
+  color: var(--color-text);
+  background-color: var(--color-base);
+  border-color: var(--color-good);
+}
+
+.o-primary-btn--disabled {
+  background: #752626;
+  border-color: var(--color-bad);
+}
+
+.o-primary-btn--subtab-option {
+  border-width: 0.1rem;
+}
+
+.o-primary-btn--subtab-option:hover {
+  background-color: var(--color-good);
+}
+
+.c-subtab-option-container {
+  border-color: var(--color-good);
+  border-width: 0.1rem;
+}
+
+.c-challenge-box--normal {
+  border-color: var(--color-accent);
+}
+
+.c-autobuyer-box-row__modal {
+  background-color: #111014;
+  border-color: #383232;
+}
+
+.t-metro .c-autobuyer-box-row__modal {
+  background-color: var(--color-base);
+  border-color: var(--color-text);
+}
+
+.t-inverted .c-autobuyer-box-row__modal,
+.t-inverted-metro .c-autobuyer-box-row__modal {
+  background-color: var(--color-base);
+  border-color: var(--color-text);
+}
+
+.o-autobuyer-toggle-checkbox__label-modal {
+  border-color: #383232;
+}
+
+.t-inverted .o-autobuyer-toggle-checkbox__label-modal {
+  border-color: var(--color-text);
+}
+
+.o-autobuyer-input,
+.c-autobuyer-box__mode-select {
+  color: var(--color-text);
+  background: var(--color-base);
+  border: 0.1rem solid var(--color-accent);
+}
+
+.t-metro .o-autobuyer-input,
+.t-metro .c-autobuyer-box__mode-select {
+  color: black;
+  background: white;
+  border: 0.1rem solid #a9a9a9;
+}
+
+.t-dark .o-autobuyer-input,
+.t-dark-metro .o-autobuyer-input,
+.t-dark .c-autobuyer-box__mode-select,
+.t-dark-metro .c-autobuyer-box__mode-select {
+  color: black;
+  background-color: #455a64;
+  border: 0.1rem solid black;
+}
+
+.t-amoled .o-autobuyer-input,
+.t-amoled-metro .o-autobuyer-input,
+.t-amoled .c-autobuyer-box__mode-select,
+.t-amoled-metro .c-autobuyer-box__mode-select {
+  color: white;
+  background-color: black;
+  border: 0.1rem solid var(--color-accent);
+}
+
+.o-autobuyer-btn {
+  border: 0.1rem solid var(--color-accent);
+}
+
+.l-new-header__amounts-container {
+  position: relative;
+}
+
+.l-reset-buttons-container {
+  width: 100%;
+  min-height: 8rem;
+  position: absolute;
+  top: 0;
+}
+
+.l-game-header__battery-container {
+  margin-top: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.c-achievements-tab__timer {
+  color: white;
+}
+
+.t-normal .c-game-header__battery {
+  color: var(--color-accent);
+}
+
+.t-normal .c-credits-header {
+  color: var(--color-accent);
+}
+
+.c-progress-bar {
+  width: 80%;
+  margin: 2rem 10%;
+}
+
+.l-information {
+  top: 7rem;
+}

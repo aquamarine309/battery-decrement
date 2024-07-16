@@ -1,0 +1,642 @@
+.o-autobuyer-input--invalid[data-v-autobuyer-input] {
+  background-color: var(--color-bad);
+}
+
+.s-base--dark .o-autobuyer-input--invalid[data-v-autobuyer-input],
+.t-s1 .o-autobuyer-input--invalid[data-v-autobuyer-input] {
+  background-color: var(--color-bad);
+}
+
+.l-expanding-control-box[data-v-expanding-control-box] {
+  position: relative;
+  z-index: 3;
+}
+
+.l-expanding-control-box--controls-width[data-v-expanding-control-box] {
+  width: 100%;
+}
+
+.l-expanding-control-box__container[data-v-expanding-control-box] {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.l-expanding-control-box__container--transition[data-v-expanding-control-box] {
+  transition: max-height 0.5s;
+}
+
+.l-expanding-control-box__button[data-v-expanding-control-box] {
+  display: flex;
+  white-space: nowrap;
+  width: 100%;
+  height: 2.5rem;
+  position: relative;
+  top: -0.5rem;
+  justify-content: center;
+  align-items: center;
+  border: none !important;
+  cursor: pointer;
+}
+
+.c-indicator-arrow--flipped[data-v-expanding-control-box] {
+  transform: rotate(-180deg);
+}
+
+.c-indicator-arrow[data-v-expanding-control-box] {
+  margin-left: 0.6rem;
+  transition: transform 0.25s ease-out;
+}
+
+.c-modal__header[data-v-modal-wrapper-choice] {
+  margin-bottom: 0.5rem;
+}
+
+.c-modal__header[data-v-modal-wrapper] {
+  margin-bottom: 0.5rem;
+}
+
+.c-ad-slider__button[data-v-plus-minus-button] {
+  display: flex;
+  width: 1.6rem;
+  height: 1.6rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  border: 0.1rem solid var(--color-reality-light);
+  border-radius: var(--var-border-radius, 50%);
+  transition-duration: 0.2s;
+  cursor: pointer;
+}
+
+.c-ad-slider__button[data-v-plus-minus-button]:hover {
+  color: black;
+  background-color: var(--color-reality-light);
+}
+
+.l-ad-slider--disabled .c-ad-slider__button[data-v-plus-minus-button] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.c-blobflake-slider[data-v-animation-options-modal] {
+  padding: 1.2rem;
+}
+
+.l-wrapper[data-v-modal-wrapper-options] {
+  width: 75rem;
+}
+
+.c-bordered-entry[data-v-backup-entry] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.1rem;
+  border: var(--var-border-width, 0.2rem) solid;
+  border-radius: var(--var-border-radius, 0.4rem);
+  padding: 0.5rem 0.3rem;
+  margin: 0.3rem;
+}
+
+.c-fixed-height[data-v-backup-entry] {
+  height: 4rem;
+}
+
+.c-info[data-v-backup-window-modal] {
+  width: 60rem;
+  overflow-x: hidden;
+  padding-right: 1rem;
+}
+
+.c-info[data-v-backup-window-modal]::-webkit-scrollbar {
+  width: 1rem;
+}
+
+.c-info[data-v-backup-window-modal]::-webkit-scrollbar-thumb {
+  border: none;
+}
+
+.s-base--metro .c-info[data-v-backup-window-modal]::-webkit-scrollbar-thumb {
+  border-radius: 0;
+}
+
+.c-backup-file-ops[data-v-backup-window-modal] {
+  margin: 0.5rem;
+}
+
+.o-btn-file-ops[data-v-backup-window-modal] {
+  margin: 0 0.5rem;
+}
+
+.c-entry-container[data-v-backup-window-modal] {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.l-backup-entry[data-v-backup-window-modal] {
+  width: calc(50% - 0.6rem);
+  height: calc(25% - 0.6rem);
+}
+
+.l-hide-modal-button[data-v-hidden-subtabs-button] {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+.l-hide-modal-button__subtab-icon[data-v-hidden-subtabs-button] {
+  font-size: 1.5rem;
+  width: 2rem;
+  margin: 0.2rem;
+}
+
+.l-hide-modal-button__subtab-name[data-v-hidden-subtabs-button] {
+  width: 8.2rem;
+}
+
+.c-indicator-icon[data-v-hidden-tab-group] {
+  width: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: black;
+  text-shadow: none;
+  padding: 0.2rem;
+}
+
+.c-hidden-tabs-background__visible[data-v-hidden-tab-group] {
+  background-color: var(--color-good);
+}
+
+.c-hidden-tabs-background__hidden[data-v-hidden-tab-group] {
+  background-color: var(--color-gh-purple);
+}
+
+.c-hidden-tabs-background__always-visible[data-v-hidden-tab-group] {
+  background-color: var(--color-disabled);
+  cursor: default;
+}
+
+.l-wrapper[data-v-hidden-tabs-modal] {
+  width: 62rem;
+}
+
+.t-s12 .l-wrapper[data-v-hidden-tabs-modal] {
+  width: 65rem;
+}
+
+.l-modal-hotkeys__column[data-v-hotkeys-modal] {
+  display: flex;
+  flex-direction: column;
+  width: 28rem;
+}
+
+.l-modal-hotkeys__column--right[data-v-hotkeys-modal] {
+  margin-left: 1rem;
+}
+
+.c-modal-hotkeys[data-v-hotkeys-modal] {
+  font-size: 1.25rem;
+}
+
+.l-modal-hotkeys[data-v-hotkeys-modal] {
+  display: flex;
+  flex-direction: row;
+}
+
+.l-modal-hotkeys-row[data-v-hotkeys-modal] {
+  display: flex;
+  flex-direction: row;
+  line-height: 1.6rem;
+  padding-bottom: 0.3rem;
+}
+
+.c-modal-hotkeys-row__name[data-v-hotkeys-modal] {
+  text-align: left;
+}
+
+.l-modal-hotkeys-row__name[data-v-hotkeys-modal] {
+  flex: 1 1 auto;
+}
+
+.c-modal-hotkeys__shift-description[data-v-hotkeys-modal] {
+  text-align: left;
+  font-size: 1rem;
+}
+
+.l-autobuyer-choice[data-v-autobuyer-dropdown-entry] {
+  border-radius: 0;
+  border-top: 0;
+  box-shadow: none;
+}
+
+.l-autobuyer-choice[data-v-autobuyer-dropdown-entry]:hover {
+  background-color: var(--color-good);
+}
+
+.l-autobuyer-choice[data-v-autobuyer-dropdown-entry]:first-child {
+  border-radius: var(--var-border-radius, 0.5rem) var(--var-border-radius, 0.5rem) 0 0;
+}
+
+.l-autobuyer-choice[data-v-autobuyer-dropdown-entry]:last-child {
+  border-radius: 0 0 var(--var-border-radius, 0.5rem) var(--var-border-radius, 0.5rem);
+}
+
+.c-modal-message__text-fit[data-v-autobuyer-edit-modal] {
+  width: auto;
+}
+
+.c-modal-away-progress__disabled[data-v-away-progress-entry] b,
+.c-modal-away-progress__disabled[data-v-away-progress-entry] {
+  font-style: italic;
+  color: #303030;
+  text-shadow: 0 0 0.3rem #303030;
+  text-decoration: line-through;
+  animation: none;
+}
+
+.c-modal-away-progress__resources[data-v-away-progress-modal] div {
+  min-width: 55rem;
+  border-bottom: 0.1rem solid var(--color-text);
+  margin-bottom: 0.2rem;
+  padding-bottom: 0.2rem;
+  cursor: pointer;
+}
+
+.c-modal-away-progress__resources[data-v-away-progress-modal] div:last-child {
+  border: none;
+}
+
+.c-modal-away-progress__battery[data-v-away-progress-entry] {
+  color: var(--color-battery);
+}
+
+.t-dark .c-modal-away-progress__battery[data-v-away-progress-entry] {
+  animation: a-game-header__battery--glow 25s infinite;
+}
+
+.l-game-header__challenge-text[data-v-header-challenge-display] {
+  display: flex;
+  height: 2rem;
+  top: 50%;
+  justify-content: center;
+  align-items: center;
+   font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-text);
+  margin: 0.5rem;
+}
+
+.l-challenge-display[data-v-header-challenge-display] {
+  padding: 0.5rem;
+  cursor: default;
+}
+
+.l-challenge-display--clickable[data-v-header-challenge-display] {
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.l-challenge-display--clickable[data-v-header-challenge-display]:hover {
+  text-decoration: underline;
+}
+
+.l-padding-line[data-v-header-challenge-display] {
+  padding: 0.3rem;
+}
+
+.c-gamespeed[data-v-game-speed-display] {
+  font-weight: bold;
+  color: var(--color-text);
+}
+
+.c-prestige-info-blocks[data-v-header-prestige-group] {
+  display: flex;
+  flex-direction: row;
+  height: 18rem;
+  width: 100%;
+  color: var(--color-text);
+}
+
+.l-game-header__center[data-v-header-prestige-group] {
+  position: absolute;
+  right: calc(50% - 25rem);
+  width: 50rem;
+}
+
+.c-sidebar-resource[data-v-modern-sidebar-currency] {
+  display: flex;
+  flex-direction: column;
+  width: var(--sidebar-width);
+  height: 7rem;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-base);
+  border-right: 0.1rem solid var(--color-accent);
+  border-bottom: 0.1rem solid var(--color-accent);
+  padding: 1rem;
+  user-select: none;
+}
+
+.c-sidebar-resource-default[data-v-modern-sidebar-currency] {
+  border-width: 0.3rem;
+}
+
+.c-sidebar-resource[data-v-modern-sidebar-currency]:last-child {
+  border-bottom-right-radius: var(--var-border-radius, 0.5rem);
+}
+
+.c-sidebar-resource[data-v-modern-sidebar-currency] h2 {
+  z-index: 1;
+  font-size: 1.9rem;
+  margin: 0;
+}
+
+.t-dark .c-sidebar-resource[data-v-modern-sidebar-currency] h2,
+.t-dark-metro .c-sidebar-resource[data-v-modern-sidebar-currency] h2 {
+  text-shadow: 0 0 0.1rem rgba(0, 0, 0, 50%), -0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 80%);
+}
+
+.c-sidebar-resource__information[data-v-modern-sidebar-currency] {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 1.5rem;
+  color: var(--color-text);
+}
+
+.c-sidebar-resource__name[data-v-modern-sidebar-currency] {
+  font-size: 1.2rem;
+}
+
+.o-sidebar-currency--battery[data-v-modern-sidebar-currency] {
+  color: black;
+}
+
+.t-normal .o-sidebar-currency--battery[data-v-modern-sidebar-currency] {
+  color: var(--color-accent);
+}
+
+.t-dark .o-sidebar-currency--battery[data-v-modern-sidebar-currency],
+.t-amoled .o-sidebar-currency--battery[data-v-modern-sidebar-currency] {
+  animation: a-game-header__battery--glow 25s infinite;
+}
+
+.t-dark-metro .o-sidebar-currency--battery[data-v-modern-sidebar-currency],
+.t-amoled-metro .o-sidebar-currency--battery[data-v-modern-sidebar-currency] {
+  color: #e0e0e0;
+}
+
+.o-tab-btn[data-v-modern-tab-button]::before {
+  content: "";
+  width: 0;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  left: 0;
+  background-color: var(--color-accent);
+  transition: width 0.15s;
+}
+
+.o-tab-btn--active[data-v-modern-tab-button]::before {
+  width: 0.5rem;
+}
+
+.o-subtab-btn--active[data-v-modern-tab-button] {
+  border-bottom-width: 0.5rem;
+}
+
+.o-tab-btn--subtab[data-v-modern-tab-button]:first-child {
+  border-top-left-radius: var(--var-border-radius, 0.5rem);
+  border-bottom-left-radius: var(--var-border-radius, 0.5rem);
+  transition: border-radius 0s;
+}
+
+.o-tab-btn--subtab[data-v-modern-tab-button]:last-child {
+  border-top-right-radius: var(--var-border-radius, 0.5rem);
+  border-bottom-right-radius: var(--var-border-radius, 0.5rem);
+  transition: border-radius 0s;
+}
+
+.c-game-ui--fixed[data-v-game-ui-component-fixed] {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.progress-bar-modal[data-v-modal-progress-bar] {
+  z-index: 8;
+}
+
+.c-modal[data-v-modal-progress-bar] {
+  position: fixed;
+  /* stylelint-disable-next-line unit-allowed-list */
+  top: 50vh;
+  /* stylelint-disable-next-line unit-allowed-list */
+  left: 50vw;
+  transform: translate(-50%, -50%);
+}
+
+.modal-progress-bar[data-v-modal-progress-bar] {
+  display: flex;
+  flex-direction: column;
+  width: 40rem;
+  z-index: 3;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-progress-bar__hbox[data-v-modal-progress-bar] {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.modal-progress-bar__bg[data-v-modal-progress-bar] {
+  width: 20rem;
+  height: 2rem;
+  background: black;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.modal-progress-bar__fg[data-v-modal-progress-bar] {
+  height: 100%;
+  background: blue;
+}
+
+.modal-progress-bar__buttons[data-v-modal-progress-bar] {
+  display: flex;
+  flex-direction: row;
+  width: 25rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-progress-bar__label[data-v-modal-progress-bar] {
+  font-size: large;
+  padding-bottom: 0.5rem;
+}
+
+.modal-progress-bar__margin[data-v-modal-progress-bar] {
+  margin: 1rem 0;
+}
+
+.o-save-timer[data-v-save-timer] {
+  white-space: nowrap;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  text-align: left;
+  color: var(--color-text);
+  background-color: var(--color-base);
+  border-top: 0.1rem solid var(--color-accent);
+  border-right: 0.1rem solid var(--color-accent);
+  padding: 0 0.5rem;
+  pointer-events: auto;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.c-custom-save-name__input[data-v-save-file-name] {
+  text-align: center;
+  font-family: Typewriter;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: 0.1rem solid black;
+  border-radius: var(--var-border-radius, 0.3rem);
+}
+
+.l-toggle-button[data-v-options-gameplay-tab] {
+  font-size: 12px;
+}
+
+.c-entry-border[data-v-load-game-modal] {
+  border-bottom: 0.1rem solid var(--color-text);
+  width: 28rem;
+  padding-bottom: 1rem;
+}
+
+.c-entry-border[data-v-load-game-modal]:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+
+.o-achievement-time[data-v-normal-achievement] {
+  font-weight: bold;
+  color: var(--color-accent);
+}
+
+.o-achievement--disabled[data-v-normal-achievement] {
+  background-color: var(--color-pelle--base);
+  border-color: var(--color-bad);
+}
+
+.o-achievement--locked[data-v-normal-achievement] {
+  background-color: #a3a3a3;
+  border-color: var(--color-bad);
+}
+
+.t-dark-metro .o-achievement--locked[data-v-normal-achievement] {
+  background-color: #9e9e9e;
+}
+
+.t-metro .o-achievement--locked[data-v-normal-achievement],
+.t-inverted-metro .o-achievement--locked[data-v-normal-achievement],
+.t-s8 .o-achievement--locked[data-v-normal-achievement] {
+  background-color: #9e9e9e;
+  border-color: var(--color-bad);
+}
+
+.t-s2 .o-achievement--locked[data-v-normal-achievement] {
+  background-color: rgba(0, 0, 0, 0%);
+}
+
+.t-s5 .o-achievement--locked[data-v-normal-achievement] {
+  background-color: #222222;
+  border-color: #000000;
+}
+
+.t-s7 .o-achievement--locked[data-v-normal-achievement] {
+  background-color: #555555;
+  border-color: #111111;
+}
+
+.o-achievement--waiting[data-v-normal-achievement] {
+  background-color: #d1d161;
+  border-color: #acac39;
+}
+
+.t-dark-metro .o-achievement--waiting[data-v-normal-achievement] {
+  background-color: #b9b946;
+  border-color: #7d7d36;
+}
+
+.t-metro .o-achievement--waiting[data-v-normal-achievement],
+.t-inverted-metro .o-achievement--waiting[data-v-normal-achievement],
+.t-s8 .o-achievement--waiting[data-v-normal-achievement] {
+  background-color: #ffee58;
+  border-color: #757575;
+}
+
+.o-achievement--blink[data-v-normal-achievement] {
+  animation: a-achievement--blink-data-v-normal-achievement 2s step-start 0s infinite;
+}
+
+@keyframes a-achievement--blink-data-v-normal-achievement {
+  50% {
+    visibility: hidden;
+  }
+}
+
+.o-achievement__reward[data-v-normal-achievement] {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 1rem;
+  color: black;
+  background: #5ac467;
+  border-top: var(--var-border-width, 0.2rem) solid #127a20;
+  border-right: var(--var-border-width, 0.2rem) solid #127a20;
+  border-top-right-radius: var(--var-border-radius, 0.8rem);
+  border-bottom-left-radius: var(--var-border-radius, 0.6rem);
+}
+
+.o-achievement__reward--locked[data-v-normal-achievement] {
+  background: #a3a3a3;
+  border-color: var(--color-bad);
+}
+
+.o-achievement__reward--waiting[data-v-normal-achievement] {
+  background: #d1d161;
+  border-color: #acac39;
+}
+
+.o-achievement__reward--disabled[data-v-normal-achievement] {
+  background: var(--color-pelle--base);
+  border-color: var(--color-bad);
+}
+
+.ui-wrapper[data-v-game-ui-component] {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
