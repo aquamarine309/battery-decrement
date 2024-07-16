@@ -1,12 +1,12 @@
 import GameUiComponentFixed from "./GameUiComponentFixed.js";
-import GameUi from "./ui-modes/modern/ModernUI.js";
+import ModernUi from "./ui-modes/modern/ModernUi.js";
 import TabComponents from "./tabs/index.js";
 
 export default {
   name: "GameUIComponent",
   components: {
     ...TabComponents,
-    GameUi,
+    ModernUi,
     GameUiComponentFixed
   },
   computed: {
@@ -32,12 +32,12 @@ export default {
       id="ui"
       class="c-game-ui"
     >
-      <GameUi>
+      <ModernUi>
         <component
           :is="page"
           class="c-game-tab"
         />
-      </GameUi>
+      </ModernUi>
       <link
         v-if="view.theme !== 'Normal'"
         type="text/css"

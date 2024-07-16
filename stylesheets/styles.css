@@ -3038,41 +3038,6 @@ kbd {
   background-color: var(--color-disabled);
 }
 
-.c-hide-modal-tab-button--infinity {
-  color: var(--color-infinity);
-  border-color: var(--color-infinity);
-}
-
-.c-hide-modal-tab-button--infinity:hover {
-  background: var(--color-infinity);
-}
-
-.c-hide-modal-tab-button--eternity {
-  color: var(--color-eternity);
-  border-color: var(--color-eternity);
-}
-
-.c-hide-modal-tab-button--eternity:hover {
-  background: var(--color-eternity);
-}
-
-.c-hide-modal-tab-button--reality {
-  color: var(--color-reality);
-  border-color: var(--color-reality);
-}
-
-.c-hide-modal-tab-button--reality:hover {
-  background: var(--color-reality);
-}
-
-.c-hide-modal-tab-button--celestials {
-  color: var(--color-celestials);
-  border-color: var(--color-celestials);
-}
-
-.c-hide-modal-tab-button--celestials:hover {
-  background: var(--color-celestials);
-}
 
 /* Prevent any themes overriding font awesome */
 .fa,
