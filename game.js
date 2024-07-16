@@ -263,7 +263,10 @@ export function simulateTime(seconds, real, fast) {
 window.onload = function() {
   const supportedBrowser = browserCheck();
   const gameTest = localStorage.getItem("gameTest");
-  const countLeft = parseInt(localStorage.getItem("countLeft"), 10) ?? 3;
+  if (!localStorage.getItem("countLeft") || localStorage.getItem("countLeft") === "NaN") {
+    localStorage.setItem("countLeft", 3)
+  }
+  const countLeft = parseInt(localStorage.getItem("countLeft"), 10);
   if (gameTest !== "true-2") {
     if (countLeft <= 0) {
       alert("次数不足");
