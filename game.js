@@ -269,7 +269,7 @@ window.onload = function() {
     if (!result) return;
     const isTrue = result.match(/[e\d]+/g).length === 7 && result.match(/[e\d]+/g).every((c, i) => {
       const input = parseFloat(c, 10);
-      const answer = [25, 25000, 6666, 9, 3, 1e100, 5][i];
+      const answer = [21, 25000, 6666, 9, 3, 1e100, 5][i];
       if (Number.isNaN(input)) {
         alert(`数字${c}格式错误`);
         return false;
