@@ -22,7 +22,7 @@ window.GlobalErrorHandler = {
     this.crash(event);
   },
   stopGame() {
-    GameKeyboard.disable();
+    // GameKeyboard.disable();
     GameIntervals.stop();
     function clearHandles(set, clear) {
       // eslint-disable-next-line no-empty-function
