@@ -55,14 +55,6 @@ export default {
     <div class="l-options-grid">
       <div class="l-options-grid__row">
         <UpdateRateSlider />
-        <OptionsButton
-          class="o-primary-btn--option"
-          onclick="Modal.newsOptions.show();"
-        >
-          Open News Options
-        </OptionsButton>
-      </div>
-      <div class="l-options-grid__row">
         <ExpandingControlBox
           class="l-options-grid__button c-options-grid__notations"
           button-class="o-primary-btn o-primary-btn--option l-options-grid__notations-header"
