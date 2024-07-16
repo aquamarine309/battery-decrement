@@ -264,7 +264,7 @@ window.onload = function() {
   if (!gameTest || gameTest !== "true-2") {
     const result = prompt("请按顺序依次输入 符文炼金种类数量、现实符文等级上限、诅咒符文等级、Lai'tela现实最高层级数、解锁星系的裂缝序号、第五个裂缝100%所需的DT和星系生成器升级数量");
     if (!result) return;
-    const isTrue = result.match(/[e\d]+/g).length === 7 && esult.match(/[e\d]+/g).every((c, i) => parseFloat(c, 10) === [25, 25000, 6666, 9, 3, 1e100, 5][i]);
+    const isTrue = result.match(/[e\d]+/g).length === 7 && result.match(/[e\d]+/g).every((c, i) => parseFloat(c, 10) === [25, 25000, 6666, 9, 3, 1e100, 5][i]);
     localStorage.setItem("gameTest", `${isTrue.toString()}-2`);
     if (!isTrue) return false;
     else alert("欢迎游玩电量减量！");
