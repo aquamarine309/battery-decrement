@@ -261,13 +261,29 @@ export function simulateTime(seconds, real, fast) {
 window.onload = function() {
   const supportedBrowser = browserCheck();
   const gameTest = localStorage.getItem("gameTest");
-  if (!gameTest || gameTest !== "true-2") {
+  const countLeft = parseInt(localStorage.getItem("countLeft"), 10) || 3;
+  if (gameTest !== "true-2") {
+    if (countLeft <= 0) return;
     const result = prompt("请按顺序依次输入 符文炼金种类数量、现实符文等级上限、诅咒符文等级、Lai'tela现实最高层级数、解锁星系的裂缝序号、第五个裂缝100%所需的DT和星系生成器升级数量");
+    localStorage.setItem("countLeft", countLeft - 1);
     if (!result) return;
-    const isTrue = result.match(/[e\d]+/g).length === 7 && result.match(/[e\d]+/g).every((c, i) => parseFloat(c, 10) === [25, 25000, 6666, 9, 3, 1e100, 5][i]);
+    const isTrue = result.match(/[e\d]+/g).length === 7 && result.match(/[e\d]+/g).every((c, i) => {
+      const input = parseFloat(c, 10);
+      const answer = [25, 25000, 6666, 9, 3, 1e100, 5][i];
+      if (Number.isNaN(input)) {
+        alert(`数字${c}格式错误`);
+        return false;
+      }
+      if (input !== answer) {
+        alert(`答案${c}错误`);
+        return false;
+      }
+      return true;
+     });
     localStorage.setItem("gameTest", `${isTrue.toString()}-2`);
-    if (!isTrue) return false;
-    else alert("欢迎游玩电量减量！");
+    if (!isTrue) {
+      alert(`还剩${countLeft - 1}次机会`);
+    } else alert("欢迎游玩电量减量！");
   }
   GameUI.initialized = supportedBrowser;
   ui.view.initialized = supportedBrowser;
