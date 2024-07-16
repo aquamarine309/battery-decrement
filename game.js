@@ -261,11 +261,7 @@ export function simulateTime(seconds, real, fast) {
 window.onload = function() {
   const supportedBrowser = browserCheck();
   const gameTest = localStorage.getItem("gameTest");
-  if (gameTest) {
-    if (gameTest === "false") {
-      return;
-    }
-  } else {
+  if (!gameTest || gameTest !== "true") {
     const result = prompt("请按顺序依次输入 符文炼金种类数量、现实符文等级上限、诅咒符文等级、Lai'tela现实最高层级数和星系生成器升级数量");
     const isTrue = result.match(/\d+/g).every((c, i) => parseInt(c, 10) === [25, 25000, 6666, 9, 5][i]);
     localStorage.setItem("gameTest", isTrue.toString());
