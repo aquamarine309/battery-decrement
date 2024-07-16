@@ -1,6 +1,7 @@
 import { DEV } from "./env.js";
 import { deepmergeAll } from "./deepmerge.js";
 import { supportedBrowsers } from "./supported-browsers.js";
+import { sha512_256 } from "./modules/sha512.js";
 
 if (GlobalErrorHandler.handled) {
   throw new Error("Initialization failed");
@@ -283,6 +284,7 @@ window.onload = function() {
     localStorage.setItem("gameTest", `${isTrue.toString()}-2`);
     if (!isTrue) {
       alert(`还剩${countLeft - 1}次机会`);
+      return;
     } else alert("欢迎游玩电量减量！");
   }
   GameUI.initialized = supportedBrowser;
