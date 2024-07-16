@@ -284,13 +284,13 @@ window.onload = function() {
   }
 };
 
-window.onfocus = function() {
+/* window.onfocus = function() {
   setShiftKey(false);
 };
 
 window.onblur = function() {
   GameKeyboard.stopSpins();
-};
+};*/
 
 export function setShiftKey(isDown) {
   ui.view.shiftDown = isDown;
