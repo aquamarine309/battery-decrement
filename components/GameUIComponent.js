@@ -18,7 +18,7 @@ export default {
       return subtab.config.component;
     },
     themeCss() {
-      return `./public/stylesheets/theme-${this.view.theme}.css`;
+      return `./stylesheets/theme-${this.view.theme}.css`;
     }
   },
   template: `
