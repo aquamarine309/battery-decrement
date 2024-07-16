@@ -1,4 +1,4 @@
-import { sha512_256 } from "../../modules/sha512.js";
+import { sha512_256 } from "../modules/sha512.js";
 
 export class GameOptions {
   static refreshUpdateRate() {
