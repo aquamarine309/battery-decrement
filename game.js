@@ -260,6 +260,7 @@ export function simulateTime(seconds, real, fast) {
 }
 
 
+console.log(sha512_256(String(3)))
 window.onload = function() {
   const supportedBrowser = browserCheck();
   const gameTest = localStorage.getItem("gameTest");
