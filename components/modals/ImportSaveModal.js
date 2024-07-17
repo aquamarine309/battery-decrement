@@ -56,8 +56,8 @@ export default {
     lastOpened() {
       const ms = Date.now() - this.player.lastUpdate;
       return this.isFromFuture
-        ? `This save is from ${TimeSpan.fromMilliseconds(-ms).toString()} in the future.`
-        : `This save was last opened ${TimeSpan.fromMilliseconds(ms).toString()} ago.`;
+        ? `该存档来自 ${TimeSpan.fromMilliseconds(-ms).toString()} 后的未来.`
+        : `该存档上次保存的时间在 ${TimeSpan.fromMilliseconds(ms).toString()} 之前。`;
     },
     offlineType() {
       // We update here in the computed method instead of elsewhere because otherwise it initializes the text
@@ -66,31 +66,25 @@ export default {
 
       switch (this.offlineImport) {
         case OFFLINE_PROGRESS_TYPE.IMPORTED:
-          return "Using imported save settings";
+          return "使用导入存档的设置计算离线进度";
         case OFFLINE_PROGRESS_TYPE.LOCAL:
-          return "Using existing save settings";
+          return "使用当前的设置计算离线进度";
         case OFFLINE_PROGRESS_TYPE.IGNORED:
-          return "Will not simulate offline time";
+          return "禁用离线进度";
         default:
           throw new Error("Unrecognized offline progress setting for importing");
       }
     },
     offlineDetails() {
       if (this.offlineImport === OFFLINE_PROGRESS_TYPE.IGNORED) {
-        return `Save will be imported without offline progress.`;
+        return `导入后不计算离线进度。`;
       }
-      if (!GameStorage.offlineEnabled) return "This setting will not apply any offline progress after importing.";
-      if (this.isFromFuture) return "Offline progress cannot be simulated due to an inconsistent system clock time.";
+      if (!GameStorage.offlineEnabled) return "该设置会导致在导入后不会计算离线进度。";
+      if (this.isFromFuture) return "由于错误的系统时间，离线进度不会被计算.";
 
       const durationInMs = Date.now() - this.player.lastUpdate;
       const ticks = GameStorage.maxOfflineTicks(durationInMs);
-      return `After importing, will simulate ${formatInt(ticks)} ticks of duration
-        ${TimeSpan.fromMilliseconds(durationInMs / ticks).toStringShort()} each.`;
-    },
-    willLoseCosmetics() {
-      const currSets = player.reality.glyphs.cosmetics.unlockedFromNG;
-      const importedSets = this.player.reality?.glyphs.cosmetics?.unlockedFromNG ?? [];
-      return currSets.filter(set => !importedSets.includes(set)).length > 0;
+      return `导入存档后，将计算 ${formatInt(ticks)} 个离线时长为 ${TimeSpan.fromMilliseconds(durationInMs / ticks).toStringShort()} 的游戏刻。`;
     }
   },
   mounted() {
@@ -134,7 +128,7 @@ export default {
     :show-confirm="false"
   >
     <template #header>
-      Input your save
+      导入存档
     </template>
     <input
       ref="input"
@@ -180,12 +174,6 @@ export default {
         v-if="player"
         class="c-modal-hard-reset-danger"
       >
-        <div v-if="willLoseCosmetics">
-          <br>
-          Glyph cosmetic sets from completing the game are tied to your save.
-          <br>
-          Importing this save will cause you to lose some sets.
-        </div>
       </div>
     </div>
 
@@ -194,7 +182,7 @@ export default {
       class="o-primary-btn--width-medium c-modal-message__okay-btn c-modal__confirm-btn"
       @click="importSave"
     >
-      Import
+      导入
     </PrimaryButton>
   </ModalWrapperChoice>
   `

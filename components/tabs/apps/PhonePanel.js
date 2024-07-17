@@ -38,7 +38,7 @@ export default {
         <i class="fas fa-mobile" />
       </span>
       <br>
-      <span>-{{ formatBattery(consumption) }}/s</span>
+      <span>-{{ formatBattery(consumption) }} 电量/s</span>
       <span v-if="isActive">({{ formatPercents(percentsInAllApps, 0, 1) }})</span>
     </div>
     <PrimaryButton

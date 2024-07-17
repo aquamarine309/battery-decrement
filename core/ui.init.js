@@ -14,7 +14,9 @@ export const state = {
     initialized: false,
     tutorialState: 0,
     tutorialActive: true,
-    androidUI: window.innerHeight <= 500
+    androidUI: window.innerWidth <= 500,
+    hotkey: -1,
+    achievementId: -1
   },
   lastClickTime: 0,
 };

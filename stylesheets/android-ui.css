@@ -1,0 +1,628 @@
+@font-face {
+  font-family: Typewriter;
+  src: url("./blob_font_regular.ttf");
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("./blob_font_bold.ttf");
+}
+
+@font-face {
+  font-family: Medium;
+  src: url("./blob_font_medium.ttf")
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+* {
+  -webkit-touch-callout: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color:transparent;
+}
+
+#ui {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-y: contain;
+}
+
+:root {
+  --android-header-height: 5rem;
+  --color-android-ui: #008577;
+  --color-good: #127A20;
+  --color-bad: #B72B3F;
+  --color-base: #f6f6f6
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}
+
+.c-old-ui {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding-top: calc(var(--android-header-height) + 0.5rem);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.l-old-ui {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.l-old-ui__page {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  width: 100%;
+  align-items: stretch;
+}
+
+.l-android-ui-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: var(--android-header-height);
+}
+
+.c-android-ui-header {
+  background-color: var(--color-android-ui);
+  box-shadow: 0px 0.05rem 0.5rem 0.1rem rgba(0, 0, 0, 0.3);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  text-align: left;
+  font-weight: bold;
+}
+
+.c-android-ui-header-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.l-android-ui-header-info {
+  color: red;
+  font-family: Roboto;
+  background-color: white;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 1rem;
+  top: var(--android-header-height);
+}
+
+.l-game-header__center {
+  top: var(--android-header-height);
+}
+
+
+.l-open-navigation-drawer-button {
+  width: var(--android-header-height);
+  height: 100%;
+  text-align: center;
+  line-height: auto;
+  margin-left: 1rem;
+  margin-right: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-prestige-button-container {
+  color: #878787;
+  justify-content: center;
+  line-height: 2.1rem;
+}
+
+
+.c-info-color {
+  color: #878787 !important;
+}
+
+.c-game-header--currency {
+  font-family: Roboto;
+}
+
+.l-old-ui__header {
+  width: 100%;
+}
+
+.o-primary-btn--new {
+  overflow: hidden;
+  position: relative;
+  font-family: Typewriter, serif;
+  color: var(--color-text);
+  background-color: var(--color-base);
+  border: 0.1rem solid var(--color-good);
+  border-radius: var(--var-border-radius, 0.5rem);
+  width: 100%;
+  height: 2.8rem;
+  font-size: 1.1rem;
+  font-family: Medium;
+}
+
+.button-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.fill {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.fill-purchased {
+  float: left;
+  width: 20%;
+  height: 100%;
+  background-color: #9DC6A3;
+  border-radius: var(--var-border-radius, 0.5rem);
+  position: absolute;
+}
+
+.fill-possible {
+  float: left;
+  width: 40%;
+  height: 100%;
+  background-color: #B9E3BE;
+  border-radius: var(--var-border-radius, 0.5rem);
+  position: absolute;
+}
+
+.c-dim-amount {
+  font-size: 1.2rem;
+}
+
+.c-header-currency-info {
+  font-size: 1.25rem;
+}
+
+.modes-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 0;
+}
+
+.o-primary-btn--disabled {
+  border-color: var(--color-bad);
+  background-color: #E3E3E3;
+}
+
+.c-android-ui--bottom {
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  width: 100%;
+  flex-direction: column;
+}
+
+.c-android-ui--bottom__tab-btn {
+  min-width: 5rem;
+  flex: 1;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  pointer-events: all;
+  color: #a9d6d1;
+}
+
+.c-android-ui--bottom__subtab-btn {
+   min-width: 10rem;
+ }
+
+.android-tab-bar {
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  height: 4.1rem;
+  overflow-x: auto;
+  background-color: var(--color-android-ui);
+  line-height: 0;
+}
+
+.c-android-ui--bottom__tab-btn--open {
+  color: #ffffff;
+  border: 0.2rem solid #D81B60;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-weight: bold;
+}
+
+.c-hotkey-btn {
+  width: 5.2rem;
+  height: 5.2rem;
+  background-color: #D1E9E6;
+  font-size: 1.5rem;
+  border-radius: 5.5rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.2rem;
+  pointer-events:all;
+  color: black;
+  font-family: sans-serif;
+  text-shadow: 0.05rem 0 #000;
+  transition-duration: 0.1rem;
+}
+
+.c-hotkey-btn--active {
+  background-color: #c5dbd8;
+}
+
+.c-hotkey-btn--marked {
+  border: 0.1rem solid var(--color-text);
+}
+
+.c-hotkey-btn__small {
+  font-size: 1.2rem;
+}
+
+.l-hotkeys-row {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+}
+
+.l-old-ui--achievement {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+.l-screen-overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-overlay);
+  z-index: 6;
+  overflow: hidden;
+}
+
+.o-achievement--open {
+  z-index: 8;
+}
+
+.ui-wrapper--overflow {
+  overflow: hidden !important;
+}
+
+.c-autobuyer-row {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.o-challenge-header-btn,
+.o-achievement-header-btn {
+  margin: 0.2rem;
+}
+
+.c-android-tooltip {
+  position: absolute;
+  width: 12rem;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: var(--var-border-radius, 0.3rem);
+  box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.4);
+  padding: 0.6rem 0.8rem;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  margin-left: -6rem;
+  z-index: 4;
+  bottom: 130%;
+}
+
+.a-android-tooltip-leave-active,
+.a-android-tooltip-enter-active {
+  transition: transform 0.15s linear;
+}
+
+.c-android-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-bottom: 0.5rem solid transparent;
+  border-top: 0.5rem solid white;
+  margin-left: -0.5rem;
+}
+
+.a-android-tooltip-enter,
+.a-android-tooltip-leave-to {
+  transform: scale(0%);
+}
+
+.c-android-tooltip--container {
+  z-index: 2;
+  width: auto;
+  height: auto;
+}
+
+.tooltip-slot {
+  display: inline-block;
+}
+
+.l-old-ui--achievement .l-old-ui__header {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  width: calc(100% - 1rem);
+}
+
+.o-primary-btn--option--no-padding {
+  padding: 0;
+}
+
+.c-app-header > div {
+  flex-direction: column;
+  margin: 2rem 0.5rem;
+  height: 20rem;
+  box-shadow: 0 0 0.5rem var(--color-good);
+}
+
+.c-bad-shadow {
+  box-shadow: 0 0 0.5rem var(--color-bad) !important;
+}
+
+.o-app-row {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+
+.o-app-row:nth-child(2n+1) {
+  background-color: transparent;
+}
+
+.o-app-row:nth-child(2n) {
+  background-color: #c4e3fc;
+}
+
+.o-app-row > div > span:first-child {
+  font-size: 1rem;
+}
+
+.o-app-row > div > span:not(:first-child) {
+  font-size: 0.8rem;
+  filter: none !important;
+}
+
+.c-game-tab {
+  padding-bottom: 16.2rem;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.o-app-row .o-primary-btn {
+  height: calc(100% - 0.6rem);
+  width: 30%;
+  margin: 0.6rem 0;
+  border-radius: var(--var-border-radius, 0.8rem);
+}
+
+.l-battery-container {
+  height: 9rem;
+  filter: brightness(80%);
+}
+
+.l-options-grid {
+  width: 100%;
+}
+
+.l-options-grid__button {
+  flex: 1;
+  margin: 0.2rem;
+  width: auto;
+  line-height: 1.4rem;
+}
+
+.o-primary-btn--option {
+  width: auto;
+  padding: 0.3rem 1rem;
+}
+
+.o-primary-btn--modal-option {
+  width: 48%;
+}
+
+.o-primary-btn--modal-close {
+  width: 2.4rem;
+  height: 2.4rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-family: Roboto;
+}
+
+.c-modal {
+  width: 95%;
+  scrollbar-width: none;
+
+  -ms-overflow-style: none;
+
+  -webkit-touch-callout: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overscroll-behavior-y: contain;
+  overflow-y: hidden;
+  max-height: 80vh;
+}
+
+.c-modal--short {
+  max-height: 60vh;
+}
+
+.c-modal__title {
+  width: 100%;
+}
+
+.c-modal__confirmation-toggle__checkbox {
+  background: var(--color-gh-purple-option);
+}
+
+.c-modal__confirmation-toggle__checkbox--active {
+  background: var(--color-good--option);
+}
+
+.c-modal__confirm-btn {
+  background-color: var(--color-good--option) !important;
+}
+
+.c-modal-message {
+  min-width: 0;
+  width: 100%;
+}
+
+.c-modal-message__text {
+  width: 100%;
+}
+
+.c-modal-hard-reset__input {
+  width: 90%;
+}
+
+.c-modal-away-progress {
+  align-items: flex-start;
+  text-align: left;
+  padding: 0.2rem 0.8rem;
+  overflow-y: auto;
+  max-height: 60vw;
+  min-width: inherit;
+}
+
+.c-modal-away-progress b {
+  font-weight: bold;
+  font-family: Medium;
+}
+
+.c-modal-away-progress__header {
+  font-weight: bold;
+  font-family: Roboto;
+  font-size: 1.7rem;
+  line-height: 1.9rem;
+  margin: 0.3rem 0;
+}
+
+.c-modal-import__input {
+  width: 90%;
+}
+
+.c-modal-options {
+  width: 100%;
+}
+
+.c-modal-options__large {
+  width: 100%;
+}
+
+.c-modal-options .o-primary-btn--option,
+.o-primary-btn--option-wide {
+  margin: 0.2rem;
+  padding: 0.2rem;
+}
+
+.modal-progress-bar[data-v-modal-progress-bar] {
+  width: 100%;
+  justify-content: space-between;
+  text-align: left;
+  font-family: Medium;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  align-items: initial;
+}
+
+.modal-progress-bar__bg[data-v-modal-progress-bar] {
+  margin-top: 0.6rem;
+  width: 100%;
+  height: 0.4rem;
+  background: #C0C0C0;
+}
+
+.modal-progress-bar__fg[data-v-modal-progress-bar] {
+  height: 100%;
+  background: #D81B60;
+}
+
+.modal-progress-bar__buttons[data-v-modal-progress-bar] {
+  width: auto;
+}
+
+.modal-progress-bar__label[data-v-modal-progress-bar] {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.modal-progress-bar__margin {
+  margin: 1rem 0;
+  line-height: 1.5rem;
+}
+
+.c-modal-import__input {
+  width: 90% !important;
+}
+
+.o-primary-btn--option_font-med {
+  font-size: 1.4rem;
+}
+
+.o-primary-btn--option_font-large {
+  font-size: 1.8rem;
+}
+
+.o-primary-btn--option_font-x-large {
+  font-size: 1.6rem;
+}
+
+[ach-tooltip]::before {
+  color: #181818;
+  background-color: #fcfcfc;
+  box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.4);
+}
+
+[ach-tooltip]::after {
+  border-top-color: #fcfcfc;
+}
+
+:root {
+  --color-slider-blue: #d81b60;
+}

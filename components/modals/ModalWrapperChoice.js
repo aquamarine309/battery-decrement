@@ -107,7 +107,7 @@ export default {
         data-v-modal-wrapper-choice
       >
         <slot name="cancel-text">
-          Cancel
+          关闭
         </slot>
       </PrimaryButton>
 
@@ -120,7 +120,7 @@ export default {
         data-v-modal-wrapper-choice
       >
         <slot name="confirm-text">
-          Confirm
+          确认
         </slot>
       </PrimaryButton>
     </div>

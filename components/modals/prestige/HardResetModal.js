@@ -12,7 +12,7 @@ export default {
   },
   computed: {
     expectedInput() {
-      return "Shrek is love, Shrek is life";
+      return "花开花落，尽归尘土。缘起缘灭，曲终人散。";
     },
     willHardReset() {
       return this.input === this.expectedInput;
@@ -35,18 +35,14 @@ export default {
     @confirm="hardReset"
   >
     <template #header>
-      HARD RESET
+      重置游戏
     </template>
     <div class="c-modal-message__text">
-      Please confirm your desire to hard reset this save slot.
-      <span class="c-modal-hard-reset-danger">Deleting your save will not unlock anything secret.</span>
-      Type in "{{ expectedInput }}" to confirm.
+      请确定是否要重置游戏。
+      <span class="c-modal-hard-reset-danger">删除存档不会解锁任何秘密。</span>
+      输入“{{ expectedInput }}”以确认重置
       <div class="c-modal-hard-reset-danger">
-        THIS WILL WIPE YOUR SAVE.
-        <span v-if="hasExtraNG">
-          <br>
-          This will also remove any Glyph cosmetics you have unlocked from completing the game!
-        </span>
+        这将失去你的存档。
       </div>
     </div>
     <input
@@ -61,14 +57,14 @@ export default {
         v-if="willHardReset"
         class="c-modal-hard-reset-danger"
       >
-        Phrase confirmed - continuing will irreversibly delete your save!
+        该操作会永久删除存档，祝你好运。
       </div>
       <div v-else>
         Type in the correct phrase to hard reset.
       </div>
     </div>
     <template #confirm-text>
-      HARD RESET
+      毁灭
     </template>
   </ModalWrapperChoice>
   `

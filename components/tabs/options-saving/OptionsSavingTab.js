@@ -58,19 +58,19 @@ export default {
           class="o-primary-btn--option_font-x-large"
           onclick="GameStorage.export()"
         >
-          Export save
+          导出存档
         </OptionsButton>
         <OptionsButton
           class="o-primary-btn--option_font-x-large"
           onclick="Modal.import.show()"
         >
-          Import save
+          导入存档
         </OptionsButton>
         <OptionsButton
           class="o-primary-btn--option_font-x-large"
           onclick="Modal.hardReset.show()"
         >
-          RESET THE GAME
+          重置游戏
         </OptionsButton>
       </div>
       <div class="l-options-grid__row">
@@ -78,13 +78,13 @@ export default {
           class="o-primary-btn--option_font-x-large"
           onclick="GameStorage.save(false, true)"
         >
-          Save game
+          保存游戏
         </OptionsButton>
         <OptionsButton
           class="o-primary-btn--option_font-x-large"
           onclick="Modal.loadGame.show()"
         >
-          Choose save
+          选择存档
         </OptionsButton>
         <AutosaveIntervalSlider
           :min="10"
@@ -96,7 +96,7 @@ export default {
         <OptionsButton
           onclick="GameStorage.exportAsFile()"
         >
-          Export save as file
+          以文件形式导出
         </OptionsButton>
         <OptionsButton
           class="c-file-import-button"
@@ -107,19 +107,19 @@ export default {
             accept=".txt"
             @change="importAsFile"
           >
-          <label for="file">Import save from file</label>
+          <label for="file">导入存档文件</label>
         </OptionsButton>
         <PrimaryToggleButton
           v-model="showTimeSinceSave"
           class="o-primary-btn--option l-options-grid__button"
-          label="Display time since save:"
+          label="显示存档时间:"
         />
       </div>
       <div class="l-options-grid__row">
         <OptionsButton
           onclick="Modal.backupWindows.show()"
         >
-          Open Automatic Save Backup Menu
+          打开自动备份菜单
         </OptionsButton>
         <SaveFileName />
       </div>

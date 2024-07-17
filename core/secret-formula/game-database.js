@@ -1,6 +1,7 @@
 import { apps } from "./apps.js";
 import { awayProgressTypes } from "./away-progress-types.js";
 import { confirmationTypes } from "./confirmation-types.js";
+import { hotkeys } from "./hotkeys.js";
 import { sidebarResources } from "./sidebar-resources.js";
 import { tabNotifications } from "./tab-notifications.js";
 import { tabs } from "./tabs.js";
@@ -9,6 +10,7 @@ export const GameDatabase = {
   apps,
   awayProgressTypes,
   confirmationTypes,
+  hotkeys,
   sidebarResources,
   tabNotifications,
   tabs

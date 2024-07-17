@@ -28,6 +28,37 @@ class AppState extends RebuyableMechanicState {
   onPurchased() {
     Apps._batteryPerSecond.invalidate();
   }
+  
+  get isSuperenergy() {
+    return this.id === Apps.superenergyAppAt;
+  }
+  
+  get multiplier() {
+    return Apps.superenergyAppEffect / (Apps.lowBattery ? this.id + 2 : 1);
+  }
+  
+  get singleEffect() {
+    return this.config.singleEffect * this.multiplier;
+  }
+  
+  get effectValue() {
+    return this.singleEffect * this.boughtAmount;
+  }
+  
+  buyMax() {
+    const costScaling = new LinearCostScaling(
+      1 - Currency.battery.value,
+      this.config.initialCost,
+      this.config.costMult
+    );
+
+    if (costScaling.purchases <= 0) return false;
+    
+    Currency.battery.add(costScaling.totalCost);
+    this.boughtAmount += costScaling.purchases;
+    this.onPurchased();
+    return true;
+  }
 }
 
 class PhoneState extends GameMechanicState {
@@ -58,15 +89,12 @@ class PhoneState extends GameMechanicState {
 
 export const Phone = new PhoneState();
 
-export const App = mapGameDataToObject(
-  GameDatabase.apps,
-  config => new AppState(config)
-);
+export const App = AppState.createAccessor(GameDatabase.apps);
 
 export const Apps = {
-  all: App.all.concat(Phone),
+  all: App.index.concat(Phone),
   
-  allWithoutPhone: App.all,
+  allWithoutPhone: App.index,
   
   tick(diff) {
     if (Player.canChange) return;
@@ -87,7 +115,7 @@ export const Apps = {
   },
   
   get cost() {
-    return [0.995, 0.9, 0.7, 0.4, 0][this.unlocked];
+    return [0.995, 0.9, 0.7, 0.4, 0.15, 0][this.unlocked];
   },
   
   get isAffordable() {
@@ -125,7 +153,7 @@ export const Apps = {
   },
   
   get cap() {
-    return 4;
+    return 5;
   },
   
   get lowBatteryThreshold() {
@@ -134,5 +162,24 @@ export const Apps = {
   
   get lowBattery() {
     return Currency.battery.lte(this.lowBatteryThreshold);
+  },
+  
+  get superenergyAppAt() {
+    return 4;
+  },
+  
+  get superenergyApp() {
+    return App(this.superenergyAppAt);
+  },
+  
+  get superenergyAppEffect() {
+    return this.superenergyApp.isUnlocked ? this.superenergyApp.boughtAmount + 2 : 1;
+  }
+}
+
+export function maxAll() {
+  return;
+  for (const app of Apps.allWithoutPhone.reverse()) {
+    app.buyMax();
   }
 }

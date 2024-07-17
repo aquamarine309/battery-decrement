@@ -50,7 +50,9 @@ window.player = {
     hiddenTabBits: 0,
     hiddenSubtabBits: Array.repeat(0, 10),
     lastOpenTab: 0,
-    lastOpenSubtab: Array.repeat(0, 10)
+    lastOpenSubtab: Array.repeat(0, 10),
+    disableHotkeyBits: 0,
+    modifyHotkey: false
   }
 }
 

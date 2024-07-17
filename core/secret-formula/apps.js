@@ -1,18 +1,15 @@
+import { ICONS } from "./icons.js";
+
 const rebuyable = props => {
   props.cost = () => {
     return props.initialCost * Math.pow(props.costMult, player.apps[props.id]);
   }
-  props.effect = () => (
-    props.singleEffect *
-    player.apps[props.id] /
-    (Apps.lowBattery ? props.id + 2 : 1)
-  );
   return props;
 }
 
-export const apps = {
-  "clock": rebuyable({
-    id: APPS.CLOCK,
+export const apps = [
+  rebuyable({
+    id: 0,
     name: "时钟",
     // 0.050% per second
     singleEffect: 0.0005,
@@ -23,8 +20,8 @@ export const apps = {
     // <i class="fas fa-clock"></i> in AppRow.js
     icon: "clock"
   }),
-  "daysMatter": rebuyable({
-    id: APPS.DAYS_MATTER,
+  rebuyable({
+    id: 1,
     name: "Days Matter",
     // 0.100% per second
     singleEffect: 0.001,
@@ -33,8 +30,8 @@ export const apps = {
     costMult: 2.2,
     icon: "calendar"
   }),
-  "wechat": rebuyable({
-    id: APPS.WECHAT,
+  rebuyable({
+    id: 2,
     name: "微信",
     // 0.400% per second
     singleEffect: 0.004,
@@ -43,14 +40,24 @@ export const apps = {
     costMult: 2.3,
     icon: "weixin"
   }),
-  "qq": rebuyable({
-    id: APPS.QQ,
+  rebuyable({
+    id: 3,
     name: "QQ",
     // 1.000% per second
-    singleEffect: 0.01,
+    singleEffect: 0.008,
     // 50% (50%)
     initialCost: 0.5,
     costMult: 2.5,
     icon: "qq"
   }),
-}
+  rebuyable({
+    id: 4,
+    name: "冰与火之舞",
+    // 5.000% per second
+    singleEffect: 0.05,
+    // 80% (20%)
+    initialCost: 0.8,
+    costMult: 2.8,
+    icon: ICONS.ADOFAI
+  })
+]

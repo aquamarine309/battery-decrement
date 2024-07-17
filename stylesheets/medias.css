@@ -1,0 +1,74 @@
+@media print,
+screen and (max-width: 960px) {
+  div.wrapper {
+    width: auto;
+    margin: 0;
+  }
+
+  header,
+  section,
+  footer {
+    float: none;
+    width: auto;
+    position: static;
+  }
+
+  header {
+    padding-right: 320px;
+  }
+
+  section {
+    border: 0.1rem solid #e5e5e5;
+    border-width: var(--var-border-width, 1px) var(--var-border-width, 0);
+    margin: 0 0 20px;
+    padding: 20px 0;
+  }
+
+  header a small {
+    display: inline;
+  }
+
+  header ul {
+    position: absolute;
+    top: 52px;
+    right: 50px;
+  }
+}
+
+@media print,
+screen and (max-width: 720px) {
+  body {
+    word-wrap: break-word;
+  }
+
+  header {
+    padding: 0;
+  }
+
+  header ul,
+  header p.view {
+    position: static;
+  }
+
+  .o-tab-btn:hover {
+    color: var(--color-prestige--accent);
+    background: var(--color-accent);
+  }
+}
+
+@media print,
+screen and (max-width: 500px) {
+  header ul {
+    width: 99%;
+  }
+
+  header li,
+  header ul li+li+li {
+    width: 33%;
+    background-size: contain;
+  }
+
+  #loading {
+    background-image: url("../images/loading-android.png");
+  }
+}

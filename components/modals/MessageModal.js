@@ -15,9 +15,6 @@ export default {
   computed: {
     modal() {
       return this.$viewModel.modal.current;
-    },
-    isThemeS12() {
-      return this.$viewModel.theme === "S12";
     }
   },
   created() {
@@ -40,13 +37,9 @@ export default {
   <div class="c-modal-message l-modal-content--centered">
     <ModalCloseButton
       v-if="modal.closeButton"
-      :class="isThemeS12 ? 'c-modal__close-btn' : 'c-modal__close-btn--tiny'"
+      class="c-modal__close-btn--tiny"
       @click="emitClose"
-    />
-    <ModalCloseButton
-      v-else-if="isThemeS12"
-      class="c-modal__close-btn c-modal__close-btn--disabled"
-    />
+    /
     <div
       class="c-modal-message__text"
       v-html="message"
@@ -55,14 +48,8 @@ export default {
       class="o-primary-btn--width-medium c-modal-message__okay-btn c-modal__confirm-btn"
       @click="handleClick"
     >
-      Okay
+      嗯呐
     </PrimaryButton>
-    <div
-      v-if="isThemeS12"
-      class="c-modal__title"
-    >
-      Message
-    </div>
   </div>
   `
 };

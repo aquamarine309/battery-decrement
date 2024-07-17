@@ -2,7 +2,6 @@ import ExpandingControlBox from "../../ExpandingControlBox.js";
 import OptionsButton from "../../OptionsButton.js";
 import PrimaryToggleButton from "../../PrimaryToggleButton.js";
 import SelectThemeDropdown from "./SelectThemeDropdown.js";
-import SelectSidebarDropdown from "./SelectSidebarDropdown.js";
 import UpdateRateSlider from "./UpdateRateSlider.js";
 
 export default {
@@ -12,8 +11,7 @@ export default {
     PrimaryToggleButton,
     ExpandingControlBox,
     OptionsButton,
-    SelectThemeDropdown,
-    SelectSidebarDropdown
+    SelectThemeDropdown
   },
   data() {
     return {
@@ -25,13 +23,7 @@ export default {
   computed: {
     sidebarDB: () => GameDatabase.sidebarResources,
     themeLabel() {
-      return `Theme: ${Themes.find(this.theme).displayName()}`;
-    },
-    notationLabel() {
-      return `Notation: ${this.notation}`;
-    },
-    sidebarLabel() {
-      return `Sidebar (Modern UI): ${this.sidebarResource}`;
+      return `主题: ${Themes.find(this.theme).displayName()}`;
     }
   },
   watch: {
@@ -43,10 +35,6 @@ export default {
     update() {
       const options = player.options;
       this.theme = Theme.currentName();
-      this.notation = options.notation;
-      this.sidebarResource = player.options.sidebarResourceID === 0
-        ? "Latest Resource"
-        : this.sidebarDB.find(e => e.id === player.options.sidebarResourceID).optionName;
       this.headerTextColored = options.headerTextColored;
     },
   },
@@ -54,7 +42,6 @@ export default {
   <div class="l-options-tab">
     <div class="l-options-grid">
       <div class="l-options-grid__row">
-        <UpdateRateSlider />
         <ExpandingControlBox
           class="l-options-grid__button c-options-grid__notations"
           button-class="o-primary-btn o-primary-btn--option l-options-grid__notations-header"
@@ -64,25 +51,26 @@ export default {
             <SelectThemeDropdown />
           </template>
         </ExpandingControlBox>
+        <UpdateRateSlider />
       </div>
       <div class="l-options-grid__row">
         <OptionsButton
           class="o-primary-btn--option"
           onclick="Modal.animationOptions.show();"
         >
-          Open Animation Options
+          打开动画设置
         </OptionsButton>
         <OptionsButton
           class="o-primary-btn--option"
           onclick="Modal.infoDisplayOptions.show()"
         >
-          Open Info Display Options
+          打开消息显示设置
         </OptionsButton>
         <OptionsButton
           class="o-primary-btn--option"
           onclick="Modal.awayProgressOptions.show()"
         >
-          Open Away Progress Options
+          打开离线资源设置
         </OptionsButton>
       </div>
       <div class="l-options-grid__row">
@@ -90,23 +78,13 @@ export default {
           class="o-primary-btn--option"
           onclick="Modal.hiddenTabs.show()"
         >
-          Modify Visible Tabs
+          修改可见标签页
         </OptionsButton>
         <PrimaryToggleButton
           v-model="headerTextColored"
           class="o-primary-btn--option l-options-grid__button"
-          label="Relative prestige gain text coloring:"
+          label="高亮资源:"
         />
-        <ExpandingControlBox
-          v-if="!$viewModel.androidUI"
-          class="l-options-grid__button c-options-grid__notations"
-          button-class="o-primary-btn o-primary-btn--option l-options-grid__notations-header"
-          :label="sidebarLabel"
-        >
-          <template #dropdown>
-            <SelectSidebarDropdown />
-          </template>
-        </ExpandingControlBox>
       </div>
     </div>
   </div>

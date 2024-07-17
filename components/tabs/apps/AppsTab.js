@@ -39,7 +39,7 @@ export default {
       v-if="softcapped"
       class="c-softcap-text"
     >
-      已启用低电量模式，应用的消耗量减少。
+      已启用省电模式，应用的消耗量减少。
     </div>
   </div>
   `

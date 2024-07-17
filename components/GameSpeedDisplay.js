@@ -31,7 +31,7 @@ export default {
   },
   template: `
   <span
-    class="c-gamespeed"
+    class="c-gamespeed c-info-color"
     data-v-game-speed-display
   >
     <span>

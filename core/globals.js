@@ -25,3 +25,4 @@ export * from "./tab-notifications.js";
 export * from "./devtools.js";
 
 export * from "./apps.js";
+export * from "./screen-overlay.js";

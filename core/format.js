@@ -2,7 +2,7 @@ window.format = function format(value, places = 0, placesUnder1000 = 0) {
   if (Number.isNaN(value)) return "NaN";
   else if (!Number.isFinite(value)) return "无限";
   else if (value < 0) {
-    return `-${format(-value)}`;
+    return `-${format(-value, places, placesUnder1000)}`;
   }
   
   if (value >= 1000) {
