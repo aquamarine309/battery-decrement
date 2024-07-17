@@ -6,6 +6,11 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      isCharging: false
+    }
+  },
   computed: {
     fillStyle() {
       const stepRGB = [
@@ -33,6 +38,15 @@ export default {
       }
     }
   },
+  created() {
+    navigator.getBattery()
+    .then(battery => {
+      this.isCharging = battery.charging;
+      battery.onchargingchange = () => {
+        this.isCharging = battery.charging;
+      }
+    });
+  },
   template: `
   <div class="l-battery-container">
     <div class="c-battery-rect">
@@ -40,6 +54,12 @@ export default {
         class="c-battery-fill"
         :style="fillStyle"
       />
+      <div
+        class="c-battery-icon"
+        v-if="isCharging"
+      >
+        <i class="fas fa-bolt" />
+      </div>
     </div>
     <div class="c-battery-pole" />
   </div>

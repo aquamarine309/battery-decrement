@@ -41,6 +41,16 @@
   --color-base: #f6f6f6
 }
 
+:root .s-base--dark {
+  --color-android-ui: #000000
+}
+
+
+body.t-amoled,
+body.t-amoled-metro {
+  background-color: #1b1a1e !important;
+}
+
 html::-webkit-scrollbar {
   display: none; /* Chrome Safari */
 }
@@ -226,13 +236,16 @@ html::-webkit-scrollbar {
 .c-android-ui--bottom__tab-btn {
   min-width: 5rem;
   flex: 1;
-  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
   pointer-events: all;
   color: #a9d6d1;
+}
+
+.s-base--dark .c-android-ui--bottom__tab-btn {
+  color: #a1a1a1;
 }
 
 .c-android-ui--bottom__subtab-btn {
@@ -250,7 +263,7 @@ html::-webkit-scrollbar {
 }
 
 .c-android-ui--bottom__tab-btn--open {
-  color: #ffffff;
+  color: #ffffff !important;
   border: 0.2rem solid #D81B60;
   border-top: none;
   border-left: none;
@@ -259,8 +272,8 @@ html::-webkit-scrollbar {
 }
 
 .c-hotkey-btn {
-  width: 5.2rem;
-  height: 5.2rem;
+  width: 6rem;
+  height: 6rem;
   background-color: #D1E9E6;
   font-size: 1.5rem;
   border-radius: 5.5rem;
@@ -270,10 +283,14 @@ html::-webkit-scrollbar {
   align-items: center;
   margin: 0.2rem;
   pointer-events:all;
-  color: black;
+  color: var(--color-text);
   font-family: sans-serif;
   text-shadow: 0.05rem 0 #000;
   transition-duration: 0.1rem;
+}
+
+.s-base--dark .c-hotkey-btn {
+  background-color: #000000;
 }
 
 .c-hotkey-btn--active {
@@ -281,6 +298,10 @@ html::-webkit-scrollbar {
 }
 
 .c-hotkey-btn--marked {
+  text-decoration: underline;
+}
+
+.c-hotkey-btn--holding {
   border: 0.1rem solid var(--color-text);
 }
 
@@ -395,6 +416,7 @@ html::-webkit-scrollbar {
   margin: 2rem 0.5rem;
   height: 20rem;
   box-shadow: 0 0 0.5rem var(--color-good);
+  color: var(--color-text);
 }
 
 .c-bad-shadow {
@@ -405,6 +427,8 @@ html::-webkit-scrollbar {
   margin-left: 0;
   margin-right: 0;
   width: 100%;
+  color:
+  var(--color-text);
 }
 
 .o-app-row:nth-child(2n+1) {
@@ -413,6 +437,10 @@ html::-webkit-scrollbar {
 
 .o-app-row:nth-child(2n) {
   background-color: #c4e3fc;
+}
+
+.o-app-row:nth-child(2n) {
+  background-color: #562a2d;
 }
 
 .o-app-row > div > span:first-child {

@@ -45,7 +45,12 @@ class AppState extends RebuyableMechanicState {
     return this.singleEffect * this.boughtAmount;
   }
   
+  get isAvaliableForPurchase() {
+    return this.isUnlocked;
+  }
+  
   buyMax() {
+    if (!this.canBeBought) return false;
     const costScaling = new LinearCostScaling(
       1 - Currency.battery.value,
       this.config.initialCost,
@@ -173,13 +178,12 @@ export const Apps = {
   },
   
   get superenergyAppEffect() {
-    return this.superenergyApp.isUnlocked ? this.superenergyApp.boughtAmount + 2 : 1;
+    return this.superenergyApp.isUnlocked ? Math.pow(2, this.superenergyApp.boughtAmount + 1) : 1;
   }
 }
 
 export function maxAll() {
-  return;
-  for (const app of Apps.allWithoutPhone.reverse()) {
+  for (const app of Apps.allWithoutPhone.toReversed()) {
     app.buyMax();
   }
 }

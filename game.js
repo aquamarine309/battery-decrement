@@ -281,7 +281,7 @@ window.onload = function() {
         "e9cee01a82697a3f917fd2dc810eff20d9a55c33f9f862e85fa5badad8f082e9", 
         "f3680090fb1318bdb86edc25ce6caddcef238b38c906715daddfe6d54c5ccbc2", 
         "7c9e26d82a7523df0d5be5465a5621245daab77c0efc45799179109934fab505", 
-        "4e36e78cb8eb346375194c1de90113cab8680519945fec5bb7cd216eefb482be", 
+        "1b1a301ddbb47568334370c5a7cf80cd32b374a1407f44b6211b05e2bd3687a6", 
         "ce06a0f1477e0087ffca6b55b5201386042dfad7bfdd94278cd76f035d9631ea", 
         "11cd1b2203ad4a3a11ff479d1ee75a59c9f33a73c5f5cf45bda87b656237e9ed"
       ][i];
@@ -339,6 +339,3 @@ export function init() {
   GameStorage.load();
   Tabs.all.find(t => t.config.id === player.options.lastOpenTab).show(true);
 }
-
-
-console.log(sha512_256(String(3)))

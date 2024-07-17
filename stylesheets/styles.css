@@ -3134,6 +3134,16 @@ kbd {
   opacity: 60%;
 }
 
+.c-battery-icon {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
+
 .c-battery-pole {
   width: 1.5rem;
   height: 3rem;

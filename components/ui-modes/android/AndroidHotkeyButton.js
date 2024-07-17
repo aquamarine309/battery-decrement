@@ -25,7 +25,8 @@ export default {
         "c-hotkey-btn": true,
         "c-hotkey-btn__small": this.hotkey.label.length > 1,
         "c-hotkey-btn--active": this.isActive || this.isHolding,
-        "c-hotkey-btn--marked": this.isMarked && !this.isDisabled
+        "c-hotkey-btn--marked": this.isMarked && !this.isDisabled,
+        "c-hotkey-btn--holding": this.isActive
       }
     },
     isActive() {

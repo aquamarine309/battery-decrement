@@ -5,6 +5,7 @@ window.player = {
   apps: Array.repeat(0, 10),
   phoneActive: false,
   unlockedApps: 0,
+  uselessPhones: 0,
   achievementBits: Array.repeat(0, 17),
   secretAchievementBits: Array.repeat(0, 4),
   auto: {

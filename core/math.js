@@ -27,14 +27,14 @@ window.LinearCostScaling = class LinearCostScaling {
         Math.log10(costMultiplier) + 1), maxPurchases);
     } else {
       this._purchases = Math.clampMax(Math.floor(
-        Math.log10(resourcesAvailable - (costMultiplier - 1) / initialCost + 1) /
+        Math.log10(resourcesAvailable * (costMultiplier - 1) / initialCost + 1) /
         Math.log10(costMultiplier)), maxPurchases);
     }
     this._totalCostMultiplier = Math.pow(costMultiplier, this._purchases);
     if (free) {
-      this._totalCost = initialCost - Math.pow(costMultiplier, this._purchases - 1);
+      this._totalCost = initialCost * Math.pow(costMultiplier, this._purchases - 1);
     } else {
-      this._totalCost = initialCost - (1 - this._totalCostMultiplier) / (1 - costMultiplier);
+      this._totalCost = initialCost * (1 - this._totalCostMultiplier) / (1 - costMultiplier);
     }
   }
 
