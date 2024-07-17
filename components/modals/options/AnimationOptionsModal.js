@@ -11,9 +11,7 @@ export default {
   },
   data() {
     return {
-      background: false,
-      blobSnowflakes: 16,
-      isS11Active: false
+      background: false
     };
   },
   computed: {
@@ -33,59 +31,29 @@ export default {
   watch: {
     background(newValue) {
       player.options.animations.background = newValue;
-    },
-    blobSnowflakes(newValue) {
-      player.options.animations.blobSnowflakes = parseInt(newValue, 10);
     }
   },
   methods: {
     update() {
       // const progress = PlayerProgress.current;
       this.animatedThemeUnlocked = Theme.animatedThemeUnlocked;
-      this.isS11Active = Theme.currentName() === "S11";
 
       const options = player.options.animations;
       this.background = options.background;
-      this.blobSnowflakes = options.blobSnowflakes;
-    },
-    adjustSliderValue(value) {
-      this.blobSnowflakes = value;
-      player.options.blobSnowflakes = this.blobSnowflakes;
     }
   },
   template: `
   <ModalWrapperOptions class="c-modal-options__large">
     <template #header>
-      Animation Options
+      动画设置
     </template>
     <div class="c-modal-options__button-container">
-      <div v-if="!isS11Active">
+      <div>
         <ModalOptionsToggleButton
           v-if="animatedThemeUnlocked"
           v-model="background"
           onclick="Themes.find(Theme.currentName()).set();"
-          text="Background:"
-        />
-      </div>
-      <div v-else>
-        <ModalOptionsToggleButton
-          v-if="animatedThemeUnlocked"
-          v-model="background"
-          onclick="Themes.find(Theme.currentName()).set();"
-          text="Blobsnow:"
-        />
-      </div>
-      <div
-        v-if="isS11Active"
-        class="c-blobflake-slider o-primary-btn o-primary-btn--modal-option o-primary-btn--slider"
-        data-v-animation-options-modal
-      >
-        <b>{{ quantifyInt("Blobflake", parseInt(blobSnowflakes)) }}</b>
-        <SliderComponent
-          class="o-primary-btn--slider__slider"
-          v-bind="sliderProps"
-          :value="blobSnowflakes"
-          @input="adjustSliderValue($event)"
+          text="背景:"
         />
       </div>
     </div>

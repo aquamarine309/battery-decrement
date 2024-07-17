@@ -9,7 +9,6 @@ export default {
   },
   data() {
     return {
-      showPercentage: false,
       achievements: false,
       achievementUnlockStates: false
     };
@@ -20,9 +19,6 @@ export default {
     }
   },
   watch: {
-    showPercentage(newValue) {
-      player.options.showHintText.showPercentage = newValue;
-    },
     achievements(newValue) {
       player.options.showHintText.achievements = newValue;
     },
@@ -35,7 +31,6 @@ export default {
       // const progress = PlayerProgress.current;
 
       const options = player.options.showHintText;
-      this.showPercentage = options.showPercentage;
       this.achievements = options.achievements;
       this.achievementUnlockStates = options.achievementUnlockStates;
     }
@@ -43,20 +38,16 @@ export default {
   template: `
   <ModalWrapperOptions class="c-modal-options__large">
     <template #header>
-      Info Display Options
+      信息显示设置
     </template>
     <div class="c-modal-options__button-container">
       <ModalOptionsToggleButton
-        v-model="showPercentage"
-        text="Show % gain:"
-      />
-      <ModalOptionsToggleButton
         v-model="achievements"
-        text="Achievement IDs:"
+        text="成就序号:"
       />
       <ModalOptionsToggleButton
         v-model="achievementUnlockStates"
-        text="Achievement unlock state indicators:"
+        text="成就解锁状态:"
       />
     </div>
     Note: All types of additional info above will always display when holding shift.

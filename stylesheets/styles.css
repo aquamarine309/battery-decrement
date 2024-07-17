@@ -77,6 +77,7 @@ html {
   --color-overlay: rgba(30, 30, 50, 70%);
   
   --color-battery: #73e37d;
+  --color-superenergy: #FFEF37;
 
   --color-prestige--accent: white;
 }
@@ -3165,6 +3166,10 @@ kbd {
   box-shadow: 0.1rem 0.1rem 1rem var(--color-bad) !important;
 }
 
+.c-superenergy-shadow {
+  box-shadow: 0.1rem 0.1rem 1rem var(--color-superenergy) !important;
+}
+
 .c-color-fill {
   fill: var(--color-text);
   stroke: none;
@@ -3172,5 +3177,5 @@ kbd {
 
 .c-app-row--superenergy {
   background-color: rgba(209, 195, 37, 0.5) !important;
-  box-shadow: 0 0 1rem #FFEF37 inset;
+  box-shadow: 0 0 1rem var(--color-superenergy) inset;
 }

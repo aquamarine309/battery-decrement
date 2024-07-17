@@ -4,7 +4,7 @@ export const Theme = function Theme(name, config) {
   this.name = name;
 
   this.isDark = function() {
-    return this.isDefault() || config.isDark;
+    return (this.isDefault() && !ui.view.androidUI) || config.isDark;
   };
 
   this.isMetro = config.isMetro;

@@ -48,6 +48,13 @@ window.player = {
     awayProgress: {
       battery: false
     },
+    animations: {
+      background: false
+    },
+    showHintText: {
+      achievements: true,
+      achievementUnlockStates: true
+    },
     hiddenTabBits: 0,
     hiddenSubtabBits: Array.repeat(0, 10),
     lastOpenTab: 0,

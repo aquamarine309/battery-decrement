@@ -14,12 +14,12 @@ export default {
     on: {
       type: String,
       required: false,
-      default: "ON"
+      default: "已启用"
     },
     off: {
       type: String,
       required: false,
-      default: "OFF"
+      default: "已禁用"
     },
     value: {
       type: Boolean,

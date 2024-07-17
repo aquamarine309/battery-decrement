@@ -33,16 +33,22 @@
   overscroll-behavior-y: contain;
 }
 
-:root {
+:root .old-ui {
   --android-header-height: 5rem;
   --color-android-ui: #008577;
   --color-good: #127A20;
   --color-bad: #B72B3F;
-  --color-base: #f6f6f6
+  --color-base: #f6f6f6;
+  --color-modal-bg: #e0e0e0;
+  --color-disabled: #a3a3a3;
 }
 
-:root .s-base--dark {
-  --color-android-ui: #000000
+:root .s-base--dark .old-ui {
+  --color-android-ui: #000000;
+  --color-base: #181818;
+  --color-modal-bg: #222222;
+  --color-good--option: #254f2a;
+  --color-gh-purple-option: #8F4ABD;
 }
 
 
@@ -423,6 +429,10 @@ html::-webkit-scrollbar {
   box-shadow: 0 0 0.5rem var(--color-bad) !important;
 }
 
+.c-superenergy-shadow {
+  box-shadow: 0 0 0.5rem var(--color-superenergy) !important;
+}
+
 .o-app-row {
   margin-left: 0;
   margin-right: 0;
@@ -439,7 +449,7 @@ html::-webkit-scrollbar {
   background-color: #c4e3fc;
 }
 
-.o-app-row:nth-child(2n) {
+.s-base--dark .o-app-row:nth-child(2n) {
   background-color: #562a2d;
 }
 
@@ -514,6 +524,7 @@ html::-webkit-scrollbar {
   overscroll-behavior-y: contain;
   overflow-y: hidden;
   max-height: 80vh;
+  background-color: var(--color-modal-bg);
 }
 
 .c-modal--short {
@@ -653,4 +664,27 @@ html::-webkit-scrollbar {
 
 :root {
   --color-slider-blue: #d81b60;
+}
+
+.l-hide-modal-subtab-container {
+  width: 95%;
+}
+
+.l-wrapper[data-v-modal-wrapper-options],
+.l-wrapper[data-v-hidden-tabs-modal] {
+  width: 100%;
+}
+
+.c-hidden-tabs-background__visible[data-v-hidden-tab-group] {
+  background-color: var(--color-good--option);
+}
+
+.c-hidden-tabs-background__hidden[data-v-hidden-tab-group] {
+  background-color: var(--color-gh-purple--option);
+}
+
+.c-modal-options__button-container {
+  width: 100%;
+  max-height: 60vh;
+  overflow-y: auto;
 }

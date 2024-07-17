@@ -3,7 +3,7 @@ export const tabs = [
     key: "apps",
     name: "应用",
     id: 0,
-    hidable: false,
+    hidable: true,
     subtabs: [
       {
         key: "apps",

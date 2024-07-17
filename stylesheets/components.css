@@ -186,10 +186,6 @@
   width: 62rem;
 }
 
-.t-s12 .l-wrapper[data-v-hidden-tabs-modal] {
-  width: 65rem;
-}
-
 .l-modal-hotkeys__column[data-v-hotkeys-modal] {
   display: flex;
   flex-direction: column;

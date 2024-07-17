@@ -17,9 +17,12 @@ export default {
     }
   },
   computed: {
+    view() {
+      return this.$viewModel;
+    },
     styleObject() {
       return {
-        "background-color": this.value ? "var(--color-good)" : "var(--color-gh-purple)",
+        "background-color": this.view.androidUI ? (this.value ? "var(--color-good--option)" : "var(--color-gh-purple--option)") : (this.value ? "var(--color-good)" : "var(--color-gh-purple)"),
       };
     },
   },
