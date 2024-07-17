@@ -70,5 +70,7 @@ screen and (max-width: 500px) {
 
   #loading {
     background-image: url("../images/loading-android.png");
+    background-color: #111111;
+    background-size: contain;
   }
 }

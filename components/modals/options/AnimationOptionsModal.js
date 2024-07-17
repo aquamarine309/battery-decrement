@@ -48,14 +48,12 @@ export default {
       动画设置
     </template>
     <div class="c-modal-options__button-container">
-      <div>
-        <ModalOptionsToggleButton
-          v-if="animatedThemeUnlocked"
-          v-model="background"
-          onclick="Themes.find(Theme.currentName()).set();"
-          text="背景:"
-        />
-      </div>
+      <ModalOptionsToggleButton
+        v-if="animatedThemeUnlocked"
+        v-model="background"
+        onclick="Themes.find(Theme.currentName()).set();"
+        text="背景:"
+      />
     </div>
   </ModalWrapperOptions>
   `

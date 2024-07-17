@@ -688,3 +688,116 @@ html::-webkit-scrollbar {
   max-height: 60vh;
   overflow-y: auto;
 }
+
+.l-notification-container {
+  position: absolute;
+  bottom: 8.2rem;
+  z-index: 9999;
+  pointer-events:none;
+  width: 100%;
+  height: 4rem;
+}
+
+/* #region o-notification */
+
+.o-notification {
+  white-space: nowrap;
+  font-family: Medium, sans-serif;
+  font-size: 1.3rem;
+  color: black;
+  background-color: white;
+  padding: 0.8rem 2rem;
+  cursor: pointer;
+  box-shadow: 0 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 30%);
+  width: 100%;
+  height: 4rem;
+  pointer-events: auto;
+}
+
+.o-notification--success {
+  background-color: #FFDF00;
+}
+
+.o-notification--error {
+  background-color: #ffaa22;
+}
+
+.o-notification--info {
+  background-color: #48c0e8;
+}
+
+.s-base--metro .o-notification--success {
+  background-color: #ffeb3b;
+  border-color: #f9a825;
+}
+
+.s-base--metro .o-notification--error {
+  background-color: #ffaa22;
+  border-color: #553300;
+}
+
+.s-base--metro .o-notification--info {
+  background-color: #03a9f4;
+  border-color: #0277bd;
+}
+
+.a-notification--enter {
+  animation: a-notification--enter 0.3s ease-out;
+  animation-fill-mode: both;
+}
+
+@keyframes a-notification--enter {
+  0% { transform: translateY(12.2rem); }
+  65% { transform: translateY(-1rem); }
+  100% { transform: translateY(0); }
+}
+
+.a-notification--leave {
+  transform: translateY(12.2rem);
+  transition: transform 0.15s ease-in;
+}
+
+.a-notification--leave__manual {
+  transform: translateX(100vw);
+  transition: transform 0.15s ease-in;
+}
+
+.l-notification-icon {
+  position: absolute;
+  top: -0.1rem;
+  right: -0.1rem;
+  z-index: 5;
+  font-size: 1.2rem;
+  color: var(--color-notification);
+  text-shadow: -0.2rem 0.2rem 0.5rem black;
+  animation: a-notification-glow 2s infinite;
+}
+
+@keyframes a-notification-glow {
+  0% { filter: brightness(70%); }
+  50% { filter: brightness(100%); }
+  100% { filter: brightness(70%); }
+}
+
+/* #endregion o-notification */
+
+
+.l-notification-icon {
+  position: absolute;
+  top: -0.1rem;
+  right: -0.1rem;
+  z-index: 5;
+  font-size: 1.5rem;
+  color: var(--color-notification);
+  text-shadow: -0.2rem 0.2rem 0.5rem black;
+  animation: a-notification-glow 2s infinite;
+}
+
+@keyframes a-notification-glow {
+  0% { filter: brightness(70%); }
+  50% { filter: brightness(100%); }
+  100% { filter: brightness(70%); }
+}
+
+/* #endregion o-notification */
+

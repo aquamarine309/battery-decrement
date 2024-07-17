@@ -29,8 +29,8 @@ export default {
   },
   template: `
     <div
-      class="c-android-ui--bottom"
       v-if="isVisible"
+      class="c-android-ui--bottom"
     >
       <div
         id="notification-container"
