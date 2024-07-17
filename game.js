@@ -262,45 +262,45 @@ export function simulateTime(seconds, real, fast) {
 
 window.onload = function() {
   const supportedBrowser = browserCheck();
-  // const gameTest = localStorage.getItem("gameTest");
-   // if (!localStorage.getItem("countLeft") || localStorage.getItem("countLeft") === "NaN") {
-    // localStorage.setItem("countLeft", 3)
-  // }
-  // const countLeft = parseInt(localStorage.getItem("countLeft"), 10);
-  // if (gameTest !== "true-2") {
-    // if (countLeft <= 0) {
-      // alert("次数不足");
-      // return;
-    // };
-    // const result = prompt("请按顺序依次输入 符文炼金种类数量、现实符文等级上限、诅咒符文等级、Lai'tela现实中可进入的总层数、解锁星系生成器的裂缝序号、第五个裂缝100%所需的DT和星系生成器升级数量");
-    // localStorage.setItem("countLeft", countLeft - 1);
-    // const isTrue = result.trim() !== "" && result.match(/[e\d]+/g)?.length === 7 && result.match(/[e\d]+/g).every((c, i) => {
-      // const input = parseFloat(c, 10);
-      // const answer = [
-        // "7f574b494ac63e84dae278c94a7519f91fd63c3d218d75ee867012d573e79337", 
-        // "e9cee01a82697a3f917fd2dc810eff20d9a55c33f9f862e85fa5badad8f082e9", 
-        // "f3680090fb1318bdb86edc25ce6caddcef238b38c906715daddfe6d54c5ccbc2", 
-        // "7c9e26d82a7523df0d5be5465a5621245daab77c0efc45799179109934fab505", 
-        // "4e36e78cb8eb346375194c1de90113cab8680519945fec5bb7cd216eefb482be", 
-        // "ce06a0f1477e0087ffca6b55b5201386042dfad7bfdd94278cd76f035d9631ea", 
-        // "11cd1b2203ad4a3a11ff479d1ee75a59c9f33a73c5f5cf45bda87b656237e9ed"
-      // ][i];
-      // if (Number.isNaN(input)) {
-        // alert(`数字${c}格式错误`);
-        // return false;
-      // }
-      // if (sha512_256(input.toString()) !== answer) {
-        // alert(`答案${c}错误`);
-        // return false;
-      // }
-      // return true;
-     // });
-    // localStorage.setItem("gameTest", `${isTrue.toString()}-2`);
-    // if (!isTrue) {
-      // alert(`还剩${countLeft - 1}次机会`);
-      // return;
-    // } else alert("欢迎游玩电量减量！");
-  // }
+  const gameTest = localStorage.getItem("gameTest");
+   if (!localStorage.getItem("countLeft") || localStorage.getItem("countLeft") === "NaN") {
+    localStorage.setItem("countLeft", 3)
+  }
+  const countLeft = parseInt(localStorage.getItem("countLeft"), 10);
+  if (gameTest !== "true-2") {
+    if (countLeft <= 0) {
+      alert("次数不足");
+      return;
+    };
+    const result = prompt("请按顺序依次输入 符文炼金种类数量、现实符文等级上限、诅咒符文等级、Lai'tela现实中可进入的总层数、解锁星系生成器的裂缝序号、第五个裂缝100%所需的DT和星系生成器升级数量");
+    localStorage.setItem("countLeft", countLeft - 1);
+    const isTrue = result.trim() !== "" && result.match(/[e\d]+/g)?.length === 7 && result.match(/[e\d]+/g).every((c, i) => {
+      const input = parseFloat(c, 10);
+      const answer = [
+        "7f574b494ac63e84dae278c94a7519f91fd63c3d218d75ee867012d573e79337", 
+        "e9cee01a82697a3f917fd2dc810eff20d9a55c33f9f862e85fa5badad8f082e9", 
+        "f3680090fb1318bdb86edc25ce6caddcef238b38c906715daddfe6d54c5ccbc2", 
+        "7c9e26d82a7523df0d5be5465a5621245daab77c0efc45799179109934fab505", 
+        "4e36e78cb8eb346375194c1de90113cab8680519945fec5bb7cd216eefb482be", 
+        "ce06a0f1477e0087ffca6b55b5201386042dfad7bfdd94278cd76f035d9631ea", 
+        "11cd1b2203ad4a3a11ff479d1ee75a59c9f33a73c5f5cf45bda87b656237e9ed"
+      ][i];
+      if (Number.isNaN(input)) {
+        alert(`数字${c}格式错误`);
+        return false;
+      }
+      if (sha512_256(input.toString()) !== answer) {
+        alert(`答案${c}错误`);
+        return false;
+      }
+      return true;
+     });
+    localStorage.setItem("gameTest", `${isTrue.toString()}-2`);
+    if (!isTrue) {
+      alert(`还剩${countLeft - 1}次机会`);
+      return;
+    } else alert("欢迎游玩电量减量！");
+  }
   GameUI.initialized = supportedBrowser;
   ui.view.initialized = supportedBrowser;
   setTimeout(() => {
