@@ -2,7 +2,11 @@ import { deepmergeAll } from "../../deepmerge.js";
 
 // WARNING: Don't use state accessors and functions from global scope here, that's not safe in long-term
 export const migrations = {
-  patches: {},
+  patches: {
+    1: {
+      // 测试
+    }
+  },
 
   prePatch(saveData) {
     saveData.version = saveData.version || 0;
