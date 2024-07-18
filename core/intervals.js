@@ -71,6 +71,6 @@ export const GameIntervals = (function() {
             Modal.message.show(json.message, { callback: updateRefresh }, 3);
           }
         });
-    }, 6000)
+    }, 60000)
   };
 }());

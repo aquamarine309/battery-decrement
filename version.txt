@@ -1,1 +1,1 @@
-{ version: 1 }
+{ "version": 1, "message": "游戏已更新" }
