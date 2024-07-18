@@ -144,7 +144,7 @@ export class UpgradeableAutobuyerState extends IntervaledAutobuyerState {
 
   upgradeInterval(free) {
     if (this.hasMaxedInterval) return;
-    if (!free && !Currency.currency.purchase(this.cost)) return;
+    if (!free && !Currency.uselessPhones.purchase(this.cost)) return;
     this.data.cost *= 2;
     this.data.interval = Math.clampMin(this.data.interval * 0.6, 100);
     GameUI.update();

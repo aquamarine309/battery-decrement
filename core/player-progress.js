@@ -6,6 +6,10 @@ export class PlayerProgress {
   get hasFullCompletion() {
     return this._player.records?.fullGameCompletions > 0;
   }
+  
+  get isPhoneUnlocked() {
+    return player.changing > 0;
+  }
 
   static get current() {
     return new PlayerProgress(player);
@@ -13,5 +17,9 @@ export class PlayerProgress {
 
   static of(player) {
     return new PlayerProgress(player);
+  }
+  
+  static phoneUnlocked() {
+    return this.current.isPhoneUnlocked;
   }
 }

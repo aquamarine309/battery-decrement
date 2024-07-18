@@ -74,4 +74,56 @@ export const Time = {
   set totalTimePlayed(timespan) {
     this.toMilliseconds(timespan, value => player.records.totalTimePlayed = value);
   },
+  
+  /**
+   * @returns {TimeSpan}
+   */
+  get thisPhone() {
+    return this.fromMilliseconds(() => player.records.thisPhone.time);
+  },
+  /**
+   * @param {TimeSpan} timespan
+   */
+  set thisPhone(timespan) {
+    this.toMilliseconds(timespan, value => player.records.thisPhone.time = value);
+  },
+
+  /**
+   * @returns {TimeSpan}
+   */
+  get thisPhoneRealTime() {
+    return this.fromMilliseconds(() => player.records.thisPhone.realTime);
+  },
+  /**
+   * @param {TimeSpan} timespan
+   */
+  set thisPhoneRealTime(timespan) {
+    this.toMilliseconds(timespan, value => player.records.thisPhone.realTime = value);
+  },
+
+  /**
+   * @returns {TimeSpan}
+   */
+  get bestPhone() {
+    return this.fromMilliseconds(() => player.records.bestPhone.time);
+  },
+  /**
+   * @param {TimeSpan} timespan
+   */
+  set bestPhone(timespan) {
+    this.toMilliseconds(timespan, value => player.records.bestPhone.time = value);
+  },
+
+  /**
+   * @returns {TimeSpan}
+   */
+  get bestPhoneRealTime() {
+    return this.fromMilliseconds(() => player.records.bestPhone.realTime);
+  },
+  /**
+   * @param {TimeSpan} timespan
+   */
+  set bestPhoneRealTime(timespan) {
+    this.toMilliseconds(timespan, value => player.records.bestPhone.realTime = value);
+  },
 };

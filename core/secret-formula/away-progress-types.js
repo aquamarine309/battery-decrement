@@ -1,8 +1,9 @@
 export const awayProgressTypes = [
   {
-    name: "电量",
-    awayOption: "battery",
+    name: "battery",
+    forcedName: "电量",
     reference: ["battery"],
-    isUnlocked: () => true
+    isUnlocked: () => true,
+    formatValue: value => formatBattery(value)
   }
 ];

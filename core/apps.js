@@ -9,6 +9,18 @@ class AppState extends RebuyableMechanicState {
     return true;
   }
   
+  get initialCost() {
+    return this.config.initialCost;
+  }
+  
+  get costMult() {
+    return this.config.costMult;
+  }
+  
+  get cost() {
+    return this.initialCost * Math.pow(this.costMult, this.boughtAmount);
+  }
+  
   get boughtAmount() {
     return player.apps[this.id]
   }
@@ -45,16 +57,16 @@ class AppState extends RebuyableMechanicState {
     return this.singleEffect * this.boughtAmount;
   }
   
-  get isAvaliableForPurchase() {
-    return this.isUnlocked;
+  get isAvailableForPurchase() {
+    return this.isUnlocked && !Player.canChange;
   }
   
   buyMax() {
     if (!this.canBeBought) return false;
     const costScaling = new LinearCostScaling(
       1 - Currency.battery.value,
-      this.config.initialCost,
-      this.config.costMult
+      this.cost,
+      this.costMult
     );
 
     if (costScaling.purchases <= 0) return false;
@@ -132,7 +144,7 @@ export const Apps = {
   },
   
   get isAvaliableForPurchase() {
-    return this.isAffordable && !this.isCapped;
+    return this.isAffordable && !this.isCapped && !Player.canChange;
   },
   
   download() {

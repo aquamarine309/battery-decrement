@@ -18,6 +18,8 @@ import CreditsModal from "../components/modals/CreditsModal.js";
 import ImportSaveModal from "../components/modals/ImportSaveModal.js";
 import LoadGameModal from "../components/modals/LoadGameModal.js";
 
+import ChangePhoneModal from "../components/modals/prestige/ChangePhoneModal.js";
+
 let nextModalID = 0;
 export class Modal {
   constructor(component, priority = 0, closeEvent) {
@@ -33,8 +35,7 @@ export class Modal {
   applyCloseListeners(closeEvent) {
     // Most of the time the close event will be a prestige event, in which case we want it to trigger on all higher
     // prestiges as well
-    const prestigeOrder = [GAME_EVENT.DIMBOOST_AFTER, GAME_EVENT.GALAXY_RESET_AFTER, GAME_EVENT.BIG_CRUNCH_AFTER,
-      GAME_EVENT.ETERNITY_RESET_AFTER, GAME_EVENT.REALITY_RESET_AFTER];
+    const prestigeOrder = [GAME_EVENT.CHANGE_PHONE_AFTER];
     let shouldClose = false;
     for (const prestige of prestigeOrder) {
       if (prestige === closeEvent) shouldClose = true;
@@ -146,6 +147,8 @@ Modal.awayProgress = new Modal(AwayProgressModal);
 Modal.loadGame = new Modal(LoadGameModal);
 Modal.import = new Modal(ImportSaveModal);
 Modal.autobuyerEditModal = new Modal(AutobuyerEditModal);
+
+Modal.changePhone = new Modal(ChangePhoneModal);
 
 Modal.message = new class extends Modal {
   show(text, props = {}, messagePriority = 0) {

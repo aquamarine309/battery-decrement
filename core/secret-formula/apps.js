@@ -1,12 +1,5 @@
 import { ICONS } from "./icons.js";
 
-const rebuyable = props => {
-  props.cost = () => {
-    return props.initialCost * Math.pow(props.costMult, player.apps[props.id]);
-  }
-  return props;
-}
-
 export const apps = [
   {
     id: 0,
@@ -60,4 +53,4 @@ export const apps = [
     costMult: 2.8,
     icon: ICONS.ADOFAI
   }
-].map(rebuyable);
+];

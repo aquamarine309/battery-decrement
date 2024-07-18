@@ -17,9 +17,20 @@ window.player = {
     realTimePlayed: 0,
     realTimeDoomed: 0,
     fullGameCompletions: 0,
-    previousRunRealTime: 0
+    previousRunRealTime: 0,
+    thisPhone: {
+      time: 0,
+      realTime: 0,
+      bestPhoneMin: 0,
+      bestPhoneMinVal: 0
+    },
+    bestInfinity: {
+      time: Number.MAX_VALUE,
+      realTime: Number.MAX_VALUE,
+      bestPhoneMin: 0,
+    },
   },
-  version: 0,
+  version: 1,
   tabNotifications: new Set(),
   triggeredTabNotificationBits: 0,
   tutorialState: 0,
@@ -44,12 +55,16 @@ window.player = {
     exportedFileCount: 0,
     hideCompletedAchievementRows: false,
     headerTextColored: false,
-    confirmations: {},
+    confirmations: {
+      changePhone: true
+    },
     awayProgress: {
-      battery: false
+      battery: true,
+      ueslessPhones: true
     },
     animations: {
-      background: false
+      background: true,
+      changePhone: true
     },
     showHintText: {
       achievements: true,
@@ -69,6 +84,10 @@ export const Player = {
   
   get canChange() {
     return Currency.battery.lte(0);
+  },
+  
+  resetRequirements(key) {
+    
   }
 };
 

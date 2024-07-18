@@ -51,7 +51,7 @@ export default {
       const before = this.before;
       const after = this.after;
 
-      return after > before;
+      return after !== before;
     },
     show() {
       if (!this.item.appearsInAwayModal) return false;
@@ -59,6 +59,15 @@ export default {
       // For the achievement and display, we need to emit if something happened to the parent
       if (show) this.$emit("something-happened");
       return show;
+    },
+    descriptionWord() {
+      // If they would visually display as the same number, they shouldn't be treated as if they increased
+      if (this.formatAfter === this.formatBefore) return "";
+      // Both Decimals and numbers may be passed in. This code handles both.
+      const before = this.before;
+      const after = this.after;
+
+      return after > before ? "增长" : "降低";
     }
   },
   methods: {
@@ -66,6 +75,9 @@ export default {
       // Sometimes it's undefined and that throws errors, because this method is also used to determine whether or
       // not any text is even shown at all and sometimes this gets checked on variables which don't have values yet
       if (number === undefined) return "";
+      if (this.item.formatValue !== undefined) {
+        return this.item.formatValue(number);
+      }
       if (number < 1e9) {
         return formatInt(number);
       }
@@ -85,9 +97,8 @@ export default {
   >
     <span>
       <b>{{ formattedName }}</b>
-      <i v-if="isVeryLarge"> exponent</i>
-      increased from
-      {{ formatBefore }} to {{ formatAfter }}
+      从
+      {{ formatBefore }} {{ descriptionWord }}到 {{ formatAfter }}
     </span>
   </div>
   `

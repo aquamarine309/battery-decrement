@@ -27,18 +27,15 @@ export default {
     };
   },
   computed: {
-    nothingHappened() {
-      return Theme.current().name === "S9";
-    },
     offlineStats() {
       return AwayProgressTypes.appearsInAwayModal;
     },
     headerText() {
       const timeDisplay = TimeSpan.fromSeconds(this.seconds).toString();
-      if (this.nothingHappened || !this.somethingHappened) {
-        return `While you were away for ${timeDisplay}... Nothing happened.`;
+      if (!this.somethingHappened) {
+        return `在你离开的 ${timeDisplay} 里... 什么事情都没发生。`;
       }
-      return `While you were away for ${timeDisplay}: `;
+      return `在你离开的 ${timeDisplay} 里: `;
     },
   },
   template: `
@@ -47,7 +44,6 @@ export default {
       {{ headerText }}
     </div>
     <div
-      v-if="!nothingHappened"
       class="c-modal-away-progress__resources c-modal--short"
       data-v-away-progress-modal
     >
@@ -60,7 +56,7 @@ export default {
         @something-happened="somethingHappened = true"
       />
     </div>
-    <span v-if="!nothingHappened && somethingHappened">Note: Click an entry to hide it in the future.</span>
+    <span v-if="somethingHappened">Note: Click an entry to hide it in the future.</span>
   </ModalWrapper>
   `
 };

@@ -64,13 +64,13 @@ export const GameIntervals = (function() {
     }, 1000),
     checkForUpdates: interval(() => {
       if (isLocalEnvironment()) return;
-      fetch("version.txt")
+      fetch("./version.txt")
         .then(response => response.json())
         .then(json => {
           if (json.version > player.version) {
             Modal.message.show(json.message, { callback: updateRefresh }, 3);
           }
         });
-    }, 60000)
+    }, 6000)
   };
 }());

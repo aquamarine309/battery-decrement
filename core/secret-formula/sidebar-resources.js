@@ -5,7 +5,7 @@ export const sidebarResources = [
     optionName: "电量",
     isAvailable: () => true,
     value: () => Currency.battery.value,
-    formatValue: value => formatPercents(value, 2, 3),
+    formatValue: value => formatBattery(value),
     formatClass: "o-sidebar-currency--battery"
   }
 ];

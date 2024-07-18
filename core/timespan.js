@@ -216,16 +216,16 @@ window.TimeSpan = class TimeSpan {
       addComponent(value, name);
     }
     function addComponent(value, name) {
-      parts.push(value === 1 ? `${formatInt(value)} ${name}` : `${formatInt(value)} ${name}s`);
+      parts.push(value === 1 ? `${formatInt(value)} ${name}` : `${formatInt(value)} ${name}`);
     }
-    addCheckedComponent(this.years, "year");
-    addCheckedComponent(this.days, "day");
-    addCheckedComponent(this.hours, "hour");
-    addCheckedComponent(this.minutes, "minute");
-    addCheckedComponent(this.seconds, "second");
+    addCheckedComponent(this.years, "年");
+    addCheckedComponent(this.days, "天");
+    addCheckedComponent(this.hours, "小时");
+    addCheckedComponent(this.minutes, "分钟");
+    addCheckedComponent(this.seconds, "秒");
     // Join with commas and 'and' in the end.
-    if (parts.length === 0) return `${formatInt(0)} seconds`;
-    return [parts.slice(0, -1).join(", "), parts.slice(-1)[0]].join(parts.length < 2 ? "" : " and ");
+    if (parts.length === 0) return `${formatInt(0)} 秒`;
+    return [parts.slice(0, -1).join(" "), parts.slice(-1)[0]].join(parts.length < 2 ? "" : " 和 ");
   }
 
   /**
@@ -243,7 +243,7 @@ window.TimeSpan = class TimeSpan {
       // This conditional happens when when the time is less than 1 millisecond
       // but big enough not to round to 0 with 3 decimal places (so showing decimal places
       // won't just show 0 and waste space).
-      return `${format(1000 * totalSeconds, 0, 3)} ms`;
+      return `${format(1000 * totalSeconds, 0, 3)} 毫秒`;
     }
     if (totalSeconds < 1) {
       // This catches all the cases when totalSeconds is less than 1 but not
@@ -252,13 +252,13 @@ window.TimeSpan = class TimeSpan {
       // (the most notable case of this kind is 0 itself).
       // (2) those greater than or equal to 1e-3, which will be formatted with default settings
       // (for most notations, rounding to the nearest integer number of milliseconds)
-      return `${format(1000 * totalSeconds)} ms`;
+      return `${format(1000 * totalSeconds)} 毫秒`;
     }
     if (totalSeconds < 10) {
-      return `${format(totalSeconds, 0, 3)} seconds`;
+      return `${format(totalSeconds, 0, 3)} 秒`;
     }
     if (totalSeconds < 60) {
-      return `${format(totalSeconds, 0, 2)} seconds`;
+      return `${format(totalSeconds, 0, 2)} 秒`;
     }
     if (this.totalHours < 100 || (isSpeedrun && this.totalHours < 1000)) {
       if (useHMS) {
@@ -267,16 +267,16 @@ window.TimeSpan = class TimeSpan {
         return `${formatHMS(Math.floor(this.totalHours))}:${formatHMS(this.minutes)}:${sec}`;
       }
       if (this.totalMinutes < 60) {
-        return `${format(this.totalMinutes, 0, 2)} minutes`;
+        return `${format(this.totalMinutes, 0, 2)} 分钟`;
       }
       if (this.totalHours < 24) {
-        return `${format(this.totalHours, 0, 2)} hours`;
+        return `${format(this.totalHours, 0, 2)} 小时`;
       }
     }
     if (this.totalDays < 500) {
-      return `${isSpeedrun ? this.totalDays.toFixed(2) : format(this.totalDays, 0, 2)} days`;
+      return `${isSpeedrun ? this.totalDays.toFixed(2) : format(this.totalDays, 0, 2)} 天`;
     }
-    return `${isSpeedrun ? this.totalYears.toFixed(3) : format(this.totalYears, 3, 2)} years`;
+    return `${isSpeedrun ? this.totalYears.toFixed(3) : format(this.totalYears, 3, 2)} 年`;
 
     function formatHMS(value) {
       const s = value.toString();
@@ -291,8 +291,8 @@ window.TimeSpan = class TimeSpan {
 
   toTimeEstimate() {
     const seconds = this.totalSeconds;
-    if (seconds < 1) return `< ${formatInt(1)} second`;
-    if (seconds > 86400 * 365.25) return `> ${formatInt(1)} year`;
+    if (seconds < 1) return `< ${formatInt(1)} 秒`;
+    if (seconds > 86400 * 365.25) return `> ${formatInt(1)} 年`;
     return this.toStringShort();
   }
 

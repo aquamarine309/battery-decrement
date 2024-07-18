@@ -15,6 +15,7 @@ class AwayProgress {
     this.applyFn = config.applyFn ?? (x => x);
     this.classObjectReference = config.classObjectReference ?? this.name;
     this.appearsInAwayModal = config.appearsInAwayModal ?? true;
+    this.formatValue = config.formatValue;
   }
 
   get option() {
