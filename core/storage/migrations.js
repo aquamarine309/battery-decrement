@@ -3,7 +3,7 @@ import { deepmergeAll } from "../../deepmerge.js";
 // WARNING: Don't use state accessors and functions from global scope here, that's not safe in long-term
 export const migrations = {
   patches: {
-    1: {
+    1: player => {
       // 测试
     }
   },
