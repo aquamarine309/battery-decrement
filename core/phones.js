@@ -16,7 +16,7 @@ export function manualChangePhoneResetRequest() {
 }
 
 export function changePhoneResetRequest(disableAnimation = false) {
-  if (!Player.canCrunch) return;
+  if (!Player.canChange) return;
   if (!disableAnimation && player.options.animations.changePhone && !FullScreenAnimationHandler.isDisplaying) {
     changePhoneAnimation();
     setTimeout(changePhoneReset, 1000);
@@ -40,7 +40,7 @@ export function changePhoneReset(forced = false) {
 function changePhoneGiveRewards() {
   changePhoneUpdateStatistics();
 
-  const uselessPhones = gainedUselessPhones();
+  const uselessPhones = gainedPhones();
   Currency.uselessPhones.add(uselessPhones);
   Currency.changing.add(Math.round(gainedChanging()));
 
@@ -49,7 +49,7 @@ function changePhoneGiveRewards() {
 
 function changePhoneUpdateStatistics() {
   player.records.bestPhone.bestPhoneMin =
-    player.records.bestPhone.bestPhoneMin.clampMin(player.records.thisPhone.bestPhoneMin);
+    Math.clampMin(player.records.bestPhone.bestPhoneMin, player.records.thisPhone.bestPhoneMin);
   player.records.thisPhone.bestIPmin = 0;
 
   const infinityPoints = gainedPhones();
@@ -69,8 +69,6 @@ function changePhoneUpdateStatistics() {
 
 function changePhoneTabChange(firstPhone) {
   const earlyGame = player.records.bestPhone.time > 60000;
-  const inAntimatterChallenge = Player.isInAntimatterChallenge;
-  handleChallengeCompletion();
 
   if (firstPhone) {
     Tab.phone.upgrades.show();
@@ -87,7 +85,9 @@ export function firstSoftReset(enteringAntimatterChallenge) {
   Currency.battery.reset();
   Apps.allWithoutPhone.forEach(a => a.resetAmount());
   Player.resetRequirements("phone");
-  Phone.active = false;
+  Phone.isActive = false;
+  Apps._batteryPerSecond.invalidate();
+  Apps.unlocked = 0;
 }
 
 export function gainedPhones() {
@@ -96,4 +96,10 @@ export function gainedPhones() {
 
 export function gainedChanging() {
   return 1;
+}
+
+function addPhoneTime(time, realTime, resources, counts) {
+  player.records.recentPhones.pop();
+  player.records.recentPhones.unshift({ time, realTime, resources, counts });
+  GameCache.bestPhonePM.invalidate();
 }

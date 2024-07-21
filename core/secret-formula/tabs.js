@@ -47,4 +47,22 @@ export const tabs = [
       }
     ]
   },
+  {
+    key: "phone",
+    name: "手机",
+    id: 1,
+    hidable: true,
+    color: "var(--color-phone)",
+    condition: () => PlayerProgress.phoneUnlocked(),
+    subtabs: [
+      {
+        key: "upgrades",
+        name: "手机升级",
+        symbol: "<i class='fas fa-arrow-up'></i>",
+        component: "PhoneUpgradesTab",
+        id: 0,
+        hidable: true
+      }
+    ]
+  }
 ];

@@ -75,7 +75,7 @@ export default {
     },
     deactivate() {
       if (this.modifyingHotkeys) return;
-      if (Date.now() - this.startTime > 1200) {
+      if (Date.now() - this.startTime > 500) {
         this.view.hotkey = this.hotkey.id;
         return;
       };

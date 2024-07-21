@@ -9,55 +9,34 @@ export default {
   },
   methods: {
     update() {
-      this.shouldDisplay = !player.break && Player.canCrunch;
+      this.shouldDisplay = Player.canChange;
       if (!this.shouldDisplay) return;
-      this.isModern = player.options.newUI;
-      this.smallButton = Time.bestInfinityRealTime.totalMinutes <= 1;
+      this.isModern = !player.options.androidUI;
+      this.smallButton = Time.bestPhoneRealTime.totalMinutes <= 1;
     },
     handleClick() {
-      if (PlayerProgress.infinityUnlocked()) bigCrunchResetRequest();
-      else Modal.bigCrunch.show();
+      if (PlayerProgress.phoneUnlocked()) changePhoneResetRequest();
+      else Modal.changePhone.show();
     }
   },
   template: `
-  <span v-if="shouldDisplay">
-    <div v-if="isModern">
-      <h3
-        v-if="!smallButton"
-        class="l-spacing"
-        data-v-big-crunch-button
-      >
-        The world has collapsed due to excess antimatter.
-      </h3>
-      <button
-        :class="{
-          'btn-big-crunch': true,
-          'btn-big-crunch--small': smallButton
-        }"
-        @click="handleClick"
-      >
-        Big Crunch
-      </button>
-    </div>
-    <div v-else>
-      <button
-        :class="{
-          'o-tab-btn': true,
-          'o-big-crunch-btn': true,
-          'l-old-ui__big-crunch-btn': true,
-          'l-old-ui__big-crunch-btn--overlay': smallButton
-        }"
-        @click="handleClick"
-      >
-        Big Crunch
-      </button>
-      <div
-        v-if="!smallButton"
-        class="o-emptiness"
-      >
-        The world has collapsed due to excess of antimatter.
-      </div>
-    </div>
-  </span>
+  <div v-if="shouldDisplay">
+    <h3
+      v-if="!smallButton"
+      class="l-spacing c-info-color"
+      data-change-phone-button
+    >
+      手机因电量过低已损坏
+    </h3>
+    <button
+      :class="{
+        'btn-change-phone': true,
+        'btn-change-phone--small': smallButton
+      }"
+      @click="handleClick"
+    >
+      换手机
+    </button>
+  </div>
   `
 };

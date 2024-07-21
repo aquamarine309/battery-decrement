@@ -91,9 +91,13 @@ class PhoneState extends GameMechanicState {
     return player.phoneActive;
   }
   
+  set isActive(value) {
+    player.phoneActive = value;
+  }
+  
   activate() {
     if (this.isActive) return;
-    player.phoneActive = true;
+    this.isActive = true;
     Apps._batteryPerSecond.invalidate();
   }
   

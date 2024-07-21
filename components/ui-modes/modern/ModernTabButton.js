@@ -25,14 +25,24 @@ export default {
         "o-tab-btn": true,
         "o-tab-btn--modern-tabs": true,
         "o-tab-btn--subtabs": this.showSubtabs,
-        "o-tab-btn--active": this.isCurrentTab
+        "o-tab-btn--active": this.isCurrentTab,
+        "o-tab-btn--prestige": this.color !== undefined
       };
+    },
+    styleObject() {
+      if (this.color !== undefined) {
+        return `--color-tab: ${this.color}`;
+      }
+      return "";
     },
     isCurrentTab() {
       return this.tab.isOpen;
     },
     tabName() {
       return this.tab.name;
+    },
+    color() {
+      return this.tab.config.color;
     }
   },
   methods: {
@@ -50,7 +60,8 @@ export default {
   template: `
   <div
     v-if="!isHidden && isAvailable"
-    :class="[classObject, tab.config.UIClass]"
+    :class="classObject"
+    :style="styleObject"
     data-v-modern-tab-button
   >
     <div
@@ -76,10 +87,10 @@ export default {
           v-if="subtabVisibilities[index]"
           :key="index"
           class="o-tab-btn o-tab-btn--subtab"
-          :class="
-            [tab.config.UIClass,
-             {'o-subtab-btn--active': isCurrentSubtab(subtab.id)}]
-          "
+          :class="{
+            'o-subtab-btn--active': isCurrentSubtab(subtab.id),
+            'o-tab-btn--prestige': color !== undefined 
+          }"
           @click="subtab.show(true)"
           data-v-modern-tab-button
         >

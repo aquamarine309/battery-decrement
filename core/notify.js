@@ -3,17 +3,24 @@ export const notify = (function() {
   template.classList.add("o-notification");
   const enterAnimation = "a-notification--enter";
   const leaveAnimation = "a-notification--leave";
-  function showNotification(text, elClass, duration = 2000) {
+  function showNotification(text, elClass, duration = 2000, cickFn) {
     if (!GameUI.initialized) {
       setTimeout(showNotification, 500, text, elClass, duration);
       return;
     }
+    const androidUI = ui.view.androidUI;
     const el = template.cloneNode();
     el.textContent = text;
     el.classList.add(elClass, enterAnimation);
     const container = document.getElementById("notification-container");
     container.appendChild(el);
     let entered = false;
+    if (container.children.length === 1 && androidUI) {
+      setTimeout(function() {
+        showNotification(text, elClass, duration, clickFn);
+      }, 100);
+      return;
+    }
     function stopEnter() {
       if (entered) return;
       entered = true;
@@ -29,7 +36,11 @@ export const notify = (function() {
       setTimeout(() => el.remove(), 500);
     }
     setTimeout(() => leave(), duration);
-    el.onclick = () => leave();
+    if (clickFn !== undefined && androidUI) {
+      el.onclick = clickFn;
+    } else {
+      el.onclick = () => leave();
+    }
   }
   return {
     success: (text, duration) => showNotification(text, "o-notification--success", duration),

@@ -8,6 +8,13 @@ export class GameOptions {
   static refreshAutosaveInterval() {
     GameIntervals.save.restart();
   }
+  
+  static toggleUI() {
+    player.options.androidUI = !player.options.androidUI;
+    ui.view.androidUI = player.options.androidUI;
+    Themes.find(Theme.currentName()).set();
+    GameStorage.save();
+  }
 }
 
 const secretImports = [];

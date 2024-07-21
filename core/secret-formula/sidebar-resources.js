@@ -7,5 +7,13 @@ export const sidebarResources = [
     value: () => Currency.battery.value,
     formatValue: value => formatBattery(value),
     formatClass: "o-sidebar-currency--battery"
+  },
+  {
+    id: 2,
+    optionName: "无用手机",
+    isAvailable: () => PlayerProgress.phoneUnlocked(),
+    value: () => Currency.uselessPhones.value,
+    formatValue: value => format(value, 2),
+    formatClass: "o-sidebar-currency--phones"
   }
 ];

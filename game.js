@@ -95,6 +95,10 @@ export function gameLoop(passDiff, options = {}) {
   diff *= getGameSpeedupFactor();
 
   // Player records update
+  player.records.realTimePlayed += realDiff;
+  player.records.totalTimePlayed += diff;
+  player.records.thisPhone.realTime += realDiff;
+  player.records.thisPhone.time += diff;
 
   DeltaTimeState.update(realDiff, diff);
   

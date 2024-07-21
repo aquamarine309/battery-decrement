@@ -44,4 +44,10 @@ class Lazy {
 }
 window.Lazy = Lazy;
 
-export const GameCache = {};
+export const GameCache = {
+    bestPhonePM: new Lazy(() =>
+    player.records.recentPhones
+      .map(run => ratePerMinute(run.currency, run.time))
+      .max()
+  ),
+};

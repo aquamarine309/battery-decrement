@@ -6,6 +6,9 @@ export * from "./cache.js";
 export * from "./away-progress.js";
 export * from "./confirmations.js";
 
+export * from "./keyboard.js";
+export * from "./hotkeys.js";
+
 export * from "./autobuyers/autobuyers.js";
 export * from "./storage/index.js";
 

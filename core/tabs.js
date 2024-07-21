@@ -190,6 +190,7 @@ export const Tabs = (function() {
     },
     currentUIFormat: [
       Tab.apps,
+      Tab.phone,
       Tab.options
     ]
   };

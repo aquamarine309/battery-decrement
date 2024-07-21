@@ -40,7 +40,7 @@ export default {
     handleYesClick() {
       changePhoneResetRequest();
       EventHub.ui.offAll(this);
-      if (this.isFirstInfinity) {
+      if (this.isFirstPhone) {
         setTimeout(() => Modal.message.show(`该动画在每次手动换手机时都会出现，你可以在设置中关闭该动画。`, {}, 3), 2000);
       }
     }

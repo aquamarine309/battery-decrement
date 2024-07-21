@@ -39,7 +39,7 @@ export default {
       v-if="modal.closeButton"
       class="c-modal__close-btn--tiny"
       @click="emitClose"
-    /
+    />
     <div
       class="c-modal-message__text"
       v-html="message"

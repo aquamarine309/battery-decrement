@@ -78,6 +78,7 @@ html {
   
   --color-battery: #2196f3;
   --color-superenergy: #FFEF37;
+  --color-phone: #FB233F;
 
   --color-prestige--accent: white;
 }
@@ -342,9 +343,9 @@ button:focus {
   cursor: pointer;
 }
 
-.new-ui .o-primary-btn:hover {
-  color: var(--color-text-inverted);
-  background-color: var(--color-good);
+.o-tab-btn:hover {
+  color: var(--color-prestige--accent);
+  background: var(--color-accent);
 }
 
 .o-tab-btn--modern-tabs:last-child {
@@ -737,14 +738,6 @@ br {
   padding: 0.3rem 1rem;
   transition-duration: 0.2s;
   cursor: pointer;
-}
-
-@media print, screen and (max-width: 500px) {
-  .o-primary-btn {
-    height: 2.8rem;
-    font-size: 1.1rem;
-    font-family: Medium, serif;
-  }
 }
 
 .new-ui .o-primary-btn:hover {
@@ -3178,4 +3171,43 @@ kbd {
 .c-app-row--superenergy {
   background-color: rgba(209, 195, 37, 0.5) !important;
   box-shadow: 0 0 1rem var(--color-superenergy) inset;
+}
+
+.o-tab-btn--prestige {
+  color: var(--color-tab);
+  background-color: var(--color-prestige--accent);
+  border-color: var(--color-tab);
+}
+
+.new-ui .o-tab-btn--prestige:hover {
+  background: var(--color-tab);
+}
+
+@keyframes a-float {
+  0% {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    bottom: 50px;
+    opacity: 0;
+  }
+}
+
+@keyframes a-implode {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: blur(0);
+  }
+
+  50% {
+    transform: scale(0);
+    filter: blur(5px);
+  }
 }

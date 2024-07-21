@@ -290,8 +290,8 @@ html::-webkit-scrollbar {
   pointer-events:all;
   color: var(--color-text);
   font-family: sans-serif;
-  text-shadow: 0.05rem 0 #000;
-  transition-duration: 0.1rem;
+  text-shadow: 0.05rem 0 #000000;
+  transition-duration: 0.2rem;
 }
 
 .s-base--dark .c-hotkey-btn {
@@ -300,6 +300,10 @@ html::-webkit-scrollbar {
 
 .c-hotkey-btn--active {
   background-color: #c5dbd8;
+}
+
+.s-base--dark .c-hotkey-btn--active {
+  background-color: #333333;
 }
 
 .c-hotkey-btn--marked {
@@ -486,14 +490,14 @@ html::-webkit-scrollbar {
 
 .l-options-grid__button {
   flex: 1;
-  margin: 0.2rem;
   width: auto;
   line-height: 1.4rem;
+  margin: 0.2rem;
 }
 
 .o-primary-btn--option {
   width: auto;
-  padding: 0.3rem 1rem;
+  padding: 0;
 }
 
 .o-primary-btn--modal-option {
@@ -510,7 +514,7 @@ html::-webkit-scrollbar {
 
 .c-modal {
   width: 95%;
-  scrollbar-width: none;
+  scrollbar-width: 0;
 
   -ms-overflow-style: none;
 
@@ -824,4 +828,59 @@ html::-webkit-scrollbar {
   text-align: left;
   font-size: 1.5rem;
   line-height: 1.6rem
+}
+
+.btn-change-phone {
+  background-color: #f6f6f6;
+  padding: 0.8rem 2.5rem;
+  border: var(--color-phone) solid 0.3rem;
+  border-radius: var(--var-border-radius, 0.5rem);
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: var(--color-phone);
+  margin: 0.3rem 0;
+  font-family: Roboto, serif;
+}
+
+.s-base--dark .btn-change-phone {
+  background-color: black;
+}
+
+.l-select-notation__inner,
+.l-select-theme__inner {
+  scrollbar-width: 0;
+  scrollbar-color: transparent;
+}
+
+.l-select-notation__inner::-webkit-scrollbar,
+.l-select-theme__inner::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent;
+}
+
+.l-select-notation__inner::-webkit-scrollbar-thumb,
+.l-select-theme__inner::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.l-game-header__center[data-v-header-prestige-group] {
+  width: 100%;
+  text-align: center;
+  position: initial;
+  right: initial;
+}
+
+.c-prestige-button-container {
+  height: auto;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0.2rem;
+  flex: 1;
+  padding: 0;
+}
+
+.c-game-header__phones {
+  font-weight: bold;
+  color: var(--color-phone);
+  font-size: 1.7rem;
 }

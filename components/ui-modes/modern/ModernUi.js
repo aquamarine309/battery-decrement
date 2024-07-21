@@ -1,5 +1,5 @@
 import HeaderPrestigeGroup from "../HeaderPrestigeGroup.js";
-
+import ChangePhoneButton from "../ChangePhoneButton.js";
 import GameSpeedDisplay from "../../GameSpeedDisplay.js";
 
 
@@ -8,6 +8,17 @@ export default {
   components: {
     HeaderPrestigeGroup,
     GameSpeedDisplay,
+    ChangePhoneButton
+  },
+  data() {
+    return {
+      showBtn: false
+    }
+  },
+  methods: {
+    update() {
+      this.showBtn = Player.canChange && Time.bestPhoneRealTime.totalMinutes > 1;
+    }
   },
   template: `
   <div id="page">
@@ -20,7 +31,9 @@ export default {
       class="game-container"
       style="margin-top: 3.9rem"
     >
+      <ChangePhoneButton />
       <div
+        v-if="!showBtn"
         class="tab-container"
       >
         <HeaderPrestigeGroup />

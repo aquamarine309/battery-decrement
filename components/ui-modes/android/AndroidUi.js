@@ -1,13 +1,16 @@
 import GameHeader from "../GameHeader.js";
+import ChangePhoneButton from "../ChangePhoneButton.js";
 
 export default {
   name: "AndroidUi",
   components: {
-    GameHeader
+    GameHeader,
+    ChangePhoneButton
   },
   data() {
     return {
-      isFullScreen: false
+      isFullScreen: false,
+      showBtn: false
     }
   },
   computed: {
@@ -22,6 +25,7 @@ export default {
     update() {
       //Game ui has padding, but it should not show in the achievements tab.
       this.isFullScreen = this.tab === "achievements";
+      this.showBtn = Player.canChange && Time.bestPhoneRealTime.totalMinutes > 1;
     }
   },
   template: `
@@ -35,10 +39,13 @@ export default {
       type="text/css"
       href="./stylesheets/android-ui.css"
     >
-    <GameHeader class="l-old-ui__header" />
-    <div class="l-old-ui__page">
-      <slot />
-    </div>
+    <ChangePhoneButton />
+    <template v-if="!showBtn">
+      <GameHeader class="l-old-ui__header" />
+      <div class="l-old-ui__page">
+        <slot />
+      </div>
+    </template>
   </div>
   `
 }

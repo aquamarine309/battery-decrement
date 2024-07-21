@@ -169,21 +169,31 @@ class NumberCurrency extends Currency {
 }
 
 Currency.battery = new class extends NumberCurrency {
-  get value() { return player.battery }
+  get value() { return player.battery; }
   
   set value(value) {
     player.battery = value;
   }
   
-  get startingValue() { return 1 };
+  get startingValue() { return 1; }
 }();
 
 Currency.uselessPhones = new class extends NumberCurrency {
-  get value() { return player.battery }
+  get value() { return player.uselessPhones; }
   
   set value(value) {
-    player.battery = value;
+    player.uselessPhones = value;
   }
   
-  get startingValue() { return 1 };
+  get startingValue() { return 0; }
+}();
+
+Currency.changing = new class extends NumberCurrency {
+  get value() { return player.changing }
+  
+  set value(value) {
+    player.changing = value;
+  }
+  
+  get startingValue() { return 0; }
 }();

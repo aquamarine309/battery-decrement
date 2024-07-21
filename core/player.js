@@ -6,6 +6,7 @@ window.player = {
   phoneActive: false,
   unlockedApps: 0,
   uselessPhones: 0,
+  changing: 0,
   achievementBits: Array.repeat(0, 17),
   secretAchievementBits: Array.repeat(0, 4),
   auto: {
@@ -19,18 +20,24 @@ window.player = {
     fullGameCompletions: 0,
     previousRunRealTime: 0,
     thisPhone: {
-      time: 0,
-      realTime: 0,
+      time: Number.MAX_VALUE,
+      realTime: Number.MAX_VALUE,
       bestPhoneMin: 0,
       bestPhoneMinVal: 0
     },
-    bestInfinity: {
+    bestPhone: {
       time: Number.MAX_VALUE,
       realTime: Number.MAX_VALUE,
       bestPhoneMin: 0,
     },
+    recentPhones: Array.range(0, 10).map(() => ({
+      time: Number.MAX_VALUE,
+      realTime: Number.MAX_VALUE,
+      resources: 0,
+      counts: 0
+    }))
   },
-  version: 1,
+  version: 1.01,
   tabNotifications: new Set(),
   triggeredTabNotificationBits: 0,
   tutorialState: 0,
@@ -44,6 +51,7 @@ window.player = {
     updateRate: 33,
     offlineProgress: true,
     theme: "Normal",
+    androidUI: /Mobi|Android|iPhone/i.test(navigator.userAgent),
     loadBackupWithoutOffline: false,
     automaticTabSwitching: true,
     hibernationCatchup: true,
@@ -88,7 +96,11 @@ export const Player = {
   
   resetRequirements(key) {
     
-  }
+  },
+  
+  get bestPhonePM() {
+    return GameCache.bestPhonePM.value;
+  },
 };
 
 export function guardFromNaNValues(obj) {

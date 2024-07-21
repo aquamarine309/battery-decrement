@@ -427,6 +427,7 @@ export const GameStorage = {
     if (DEV) {
       guardFromNaNValues(player);
     }
+    ui.view.androidUI = player.options.androidUI;
     ui.view.tutorialState = player.tutorialState;
     ui.view.tutorialActive = player.tutorialActive;
 

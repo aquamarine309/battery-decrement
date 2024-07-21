@@ -636,3 +636,11 @@
   position: relative;
   justify-content: center;
 }
+
+.l-spacing[data-v-change-phone-button] {
+  margin-top: 1rem;
+}
+
+.o-tab-btn--prestige[data-v-modern-tab-button]::before {
+  background-color: var(--color-tab);
+}

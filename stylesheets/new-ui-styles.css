@@ -127,20 +127,8 @@ body.t-normal {
   border-left-width: 2.2rem;
 }
 
-.o-tab-btn--infinity::after {
-  border-left-color: var(--color-infinity);
-}
-
-.o-tab-btn--eternity::after {
-  border-left-color: var(--color-eternity);
-}
-
-.o-tab-btn--reality::after {
-  border-left-color: var(--color-reality);
-}
-
-.o-tab-btn--celestial::after {
-  border-left-color: var(--color-celestials);
+.o-tab-btn--prestige::after {
+  border-left-color: var(--color-tab);
 }
 
 .game-container {
@@ -227,6 +215,16 @@ body.t-normal {
 .o-tab-btn--subtab:hover .o-subtab__tooltip::after {
   border-top-width: 0.7rem;
   margin-bottom: -0.7rem;
+}
+
+.o-tab-btn--prestige .o-subtab__tooltip {
+  color: var(--color-tab);
+  background: var(--color-prestige--accent);
+  border-color: var(--color-tab);
+}
+
+.o-tab-btn--prestige .o-subtab__tooltip::after {
+  border-top-color: var(--color-tab);
 }
 
 .active {
@@ -479,4 +477,29 @@ body.t-normal {
 
 .l-information {
   top: 7rem;
+}
+
+.btn-change-phone {
+  z-index: 1;
+  font-family: Typewriter;
+  font-size: 5rem;
+  color: var(--color-phone);
+  background-color: black;
+  border: var(--var-border-width, 0.2rem) solid var(--color-phone);
+  border-radius: var(--var-border-radius, 0.5rem);
+  padding: 2rem 5rem;
+  transition-duration: 0.15s;
+  cursor: pointer;
+}
+
+.btn-change-phone--small {
+  position: absolute;
+  top: 4.3rem;
+  font-size: 3rem;
+  transform: translateX(-50%);
+}
+
+.btn-change-phone:hover {
+  color: black;
+  background-color: var(--color-phone);
 }

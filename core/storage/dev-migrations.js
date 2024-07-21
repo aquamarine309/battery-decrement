@@ -8,7 +8,12 @@ function arrayToBits(array) {
 
 // WARNING: Don't use state accessors and functions from global scope here, that's not safe in long-term
 export const devMigrations = {
-  patches: [],
+  patches: [
+    player => {
+      player.records.bestPhone.time = Number.MAX_VALUE;
+      player.records.bestPhone.realTime = Number.MAX_VALUE;
+    }
+  ],
 
   patch(player) {
     player.options.testVersion = player.options.testVersion || 0;
